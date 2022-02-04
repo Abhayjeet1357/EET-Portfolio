@@ -4,10 +4,76 @@
   <title> Basic Web Stuff</title>
   
   <style>
-    
+  .container {
+  position: relative;
+  width: 50%;
+}
+img:hover {
+transform: scaleX(-1);
+}
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+
+
+
+
+
+
+
+
+img {
+border-radius:50%;
+}
+div{
+width:150px;
+height:150px;
+background:pink;
+transition:width 2s;background 4s;
+}
+
+#div1 {transition-timing-function: linear;font-size:x-large;color:black;}
+#div2 {transition-timing-function: ease;font-size:x-large;color:black;}
+
+#div2:hover{
+width:1000px;
+background:purple;
+}
+ul.a {list-style-type: square;color:gray;font-size:xxx-large;text-decoration:underline;}
 body  {
-  background-image: url("RealSnowflake.jpg");
-  background-color: #ccccc;
+
+  background-color: #ffdb97;
 }
       h1 {
      
@@ -30,7 +96,7 @@ body  {
 </style>
   </head>
   <h1 align=center>
-    <span>Version 0.3.34</span>
+    <span>Version 0.4.34</span>
   </h1> <br>
     
     <h1 align=center><b style="font-size:xxx-large;color:white;text-decoration:underline"> T3A01-Web-Basics-By-Abhay.html </b></h1> <br>
