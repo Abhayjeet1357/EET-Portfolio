@@ -34,39 +34,7 @@ my_time=setTimeout('timer()',5);
 }
 //-->
       
-var timerid = null;
 
-
-function move()
-{
-document.getElementById('cat').style.right = 
-    parseInt(document.getElementById('cat').style.right) + 1 + 'px';    
-}
-
-window.onload=function()
-{   
-
-
-
-document.getElementById('button1').onclick=function(){
-
-    if(timerid == null){
-        timerid = setInterval("move()", 10);
-    }else{
-        clearInterval(timerid);
-        timerid = null;
-    }
-}   
-
-
-var button2 = document.getElementById('button2');
-button2.onclick= reloadPage;
-
-    function reloadPage(){
-        window.location.reload();
-    }
-
-}
     </script>
     
   <style>
@@ -101,7 +69,7 @@ ol.d {list-style-type: decimal-leading-zero;}
     }
   </style>
   </head>
-  <h1 align=center>Version 0.9.34</h1>
+  <h1 align=center>Version 0.9.35</h1>
 
   
   <h1>Favourite Foods</h1>
@@ -168,13 +136,7 @@ ol.d {list-style-type: decimal-leading-zero;}
   </table></h4>  <br> <br> <br>
 
     
-   <img id="cat" src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/OIP.jpg?raw=true" style="position:absolute;right:5px"/>
-
-<div>
-<button id="button1" type="button" style="position:absolute;left:10px;top:190px"/>START</button>
-<button id="button2" type="button" style="position:absolute;left:10px;top:220px"/>STOP & RESET</button>
-</div> <br><br><br>
-    
+  
   
   
 <img src=Earth.png id='i1' 
