@@ -22,7 +22,7 @@ h5{
   
     <title> T3A03-forms-by-Abhay.html</title>
 
-  <h5 align=center>Version 0.6.30</h5>
+  <h5 align=center>Version 0.7.30</h5>
 <h1 align=center>T3A03-forms-Abhay.html</h1>
 
 <h5><li> Create an account in Abhay's Game </h5> <br> <br>
@@ -86,11 +86,15 @@ Textarea:<br>
 
 Select Box:<BR>
 <select id="mySelect01" size=2>
-<option value='myOne' One onclick="{
+<option value='myOne' onclick="{
 	document.getElementById('myArea01').value='lol'
-	}"><br>
+	}">One<br>
 	
-<option value='myTwo'>Two
-<option value='myThree'>Three
+<option value='myTwo' onclick="{
+	document.getElementById('myArea01').value='lol'
+	}">Two<br>
+<option value='myThree' onclick="{
+	document.getElementById('myArea01').value='lol'
+	}">Three<br>
 </select>
 </form>
