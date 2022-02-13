@@ -35,7 +35,7 @@ ol.d {list-style-type: decimal-leading-zero;}
     }
   </style>
   </head>
-  <h1 align=center>Version 0.7.33</h1>
+  <h1 align=center>Version 0.8.33</h1>
 
   
   <h1>Favourite Foods</h1>
@@ -119,7 +119,53 @@ ol.d {list-style-type: decimal-leading-zero;}
   
   
 
-  
+ <head>
+<title>Demo of changing position of an Image in JavaScript</title>
+<script language='JavaScript' type='text/JavaScript'>
+<!--
+function move_img(str) {
+var step=50; // change this to different step value
+switch(str){
+case "down":
+var x=document.getElementById('i1').offsetTop;
+x= x + step;
+document.getElementById('i1').style.top= x + "px";
+break;
+
+case "up":
+var x=document.getElementById('i1').offsetTop;
+x= x -step;
+document.getElementById('i1').style.top= x + "px";
+break;
+
+case "left":
+var y=document.getElementById('i1').offsetLeft;
+y= y - step;
+document.getElementById('i1').style.left= y + "px";
+break;
+
+case "right":
+var y=document.getElementById('i1').offsetLeft;
+y= y + step;
+document.getElementById('i1').style.left= y + "px";
+break;
+}
+}
+//-->
+</script>
+</head>
+<body>
+<img src=images/help.jpg id='i1' 
+  style="position:absolute; left: 500; top: 100;">
+<br><br><br><br>
+<input type=button onClick=move_img('up') value='Up'>
+<br>
+<input type=button onClick=move_img('left') value='Left'>
+<input type=button onClick=move_img('right') value='right'>
+<br>
+<input type=button onClick=move_img('down') value='down'>
+<br><br> Return to <a href=image-move.php>image move tutorial</a>
+</body> 
   
   
   
