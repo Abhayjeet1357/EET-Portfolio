@@ -1,27 +1,26 @@
 <html style="color:white;font-size:x-large;text-shadow: 1px 1px #DE973C"><br>
 
 <head>
-  <title> T3A01-Lists-and-Tables-by-Abhay.html</title>
+  <title> T3A02-Lists-and-Tables-by-Abhay.html</title>
   <body>
     <script>
       <!--
 function reset1(){
 clearTimeout(my_time);
-document.getElementById('i1').style.left= "500px";
-document.getElementById('i1').style.top= "100px";
+document.getElementById('i1').style.left= "100px";
+document.getElementById('i1').style.top= "2900px";
 document.getElementById("msg").innerHTML="";
 }
 
 function disp(){
-var step=1; // Change this step value
-//alert("Hello");
+var step=3; 
 var y=document.getElementById('i1').offsetTop;
 var x=document.getElementById('i1').offsetLeft;
 document.getElementById("msg").innerHTML="X: " + x  + " Y : " + y
-if(y < 400 ){y= y +step;
+if(y < 3200){y= y +step;
 document.getElementById('i1').style.top= y + "px"; // vertical movment
 }else{
-if(x < 800){x= x +step;
+if(x < 900){x= x +step;
 document.getElementById('i1').style.left= x + "px";//horizontal move
 }
 }
@@ -68,9 +67,20 @@ ol.d {list-style-type: decimal-leading-zero;}
     table{
       font-size:xx-large;
     }
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
   </style>
   </head>
-  <h1 align=center>Version 0.9.36</h1>
+  <h1 align=center><span>Version 1.13.39</span></h1>
+<h4 align=center> T3A02-Lists-and-Tables-by-Abhay</h4>
 
   
   <h1>Favourite Foods</h1>
@@ -134,18 +144,18 @@ ol.d {list-style-type: decimal-leading-zero;}
 <tr><td><iframe width="560" height="315" src="https://www.youtube.com/embed/yN8jpsQuYxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td><br> <br> <br></td><td><li><a href="https://www.educba.com/html-events/">Events</a></td><td><img width= 500 src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/OIP.jpg?raw=true"</td></tr>
 <tr><td><iframe width="560" height="315" src="https://www.youtube.com/embed/bI6e6qjJ8JQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td><td><li><a href="https://www.geeksforgeeks.org/html-class-attribute/#:~:text=Class%20in%20html%3A%201%20The%20class%20is%20an,tasks%20for%20elements%20with%20the%20specified%20class%20name.">Classes</a></td><td><img width= 500 src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/download.jpg?raw=true"</td></tr>
 <tr><td><iframe width="560" height="315" src="https://www.youtube.com/embed/pA_jMnbpPDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td><td><li><a href="https://www.cabq.gov/artsculture/biopark/news/10-cool-facts-about-penguins">Penguins</a></td> <td><img width= 500 src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/RealSnowflake.jpg?raw=true"</td></tr>
-  </table></h4>  <br> <br> <br>
+  </table></h4>  <br> <br> <br> <br><br><br><br><br><br><br><br><br>
 
     
   
   
   
-<img src=Earth.png id='i1' 
-  style="position:absolute; left: 500; top: 100;">
+<img src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/download.jpg?raw=true" id='i1' 
+  style="position:absolute; left: 100; top: 2900;">
 <br><br><br><br>
-<input type=button onClick=timer() value='Start'>
-<input type=button onClick=reset1() value='Reset'>
-<div id='msg'></div>
+<input type=button class="button" onClick=timer() value='Start'>
+<input type=button class="button" onClick=reset1() value='Reset'>
+<div id='msg'></div><br><Br><br>
 
   
   
