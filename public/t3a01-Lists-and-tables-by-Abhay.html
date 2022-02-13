@@ -3,6 +3,43 @@
 <head>
   <title> T3A01-Lists-and-Tables-by-Abhay.html</title>
   <body>
+    <script>
+      
+var timerid = null;
+
+
+function move()
+{
+document.getElementById('cat').style.right = 
+    parseInt(document.getElementById('cat').style.right) + 1 + 'px';    
+}
+
+window.onload=function()
+{   
+
+
+
+document.getElementById('button1').onclick=function(){
+
+    if(timerid == null){
+        timerid = setInterval("move()", 10);
+    }else{
+        clearInterval(timerid);
+        timerid = null;
+    }
+}   
+
+
+var button2 = document.getElementById('button2');
+button2.onclick= reloadPage;
+
+    function reloadPage(){
+        window.location.reload();
+    }
+
+}
+    </script>
+    
   <style>
     ul.a {list-style-type: square;}
 ul.b {list-style-type: lower-alpha;}
@@ -35,7 +72,7 @@ ol.d {list-style-type: decimal-leading-zero;}
     }
   </style>
   </head>
-  <h1 align=center>Version 0.8.33</h1>
+  <h1 align=center>Version 0.9.33</h1>
 
   
   <h1>Favourite Foods</h1>
@@ -102,77 +139,17 @@ ol.d {list-style-type: decimal-leading-zero;}
   </table></h4>  <br> <br> <br>
 
     
-   
-    <image id="myImage01" src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/OIP.jpg?raw=true" style="position:relative;left:0;top:0;width:300;height:300;"><br>
-      
-      
-       </marquee>
-      
-      <input type=button value="go right." onclick="{document.getElementById('myImage01').style.left = '200px'
-                                                  document.getElementById('myDiv01').innerHTML = 'it went right'}">
-       <input type=button value="go left." onclick="{document.getElementById('myImage01').style.left = '200px'
-                                                  document.getElementById('myDiv01').innerHTML = 'it went left'}">
-      
+   <img id="cat" src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/OIP.jpg?raw=true" style="position:absolute;right:5px"/>
 
-      <div id="myDiv01">...</div>
-      
+<div>
+<button id="button1" type="button" style="position:absolute;left:10px;top:190px"/>START</button>
+<button id="button2" type="button" style="position:absolute;left:10px;top:220px"/>STOP & RESET</button>
+</div>
+    
   
   
 
- <head>
-<title>Demo of changing position of an Image in JavaScript</title>
-<script language='JavaScript' type='text/JavaScript'>
-<!--
-function move_img(str) {
-var step=50; // change this to different step value
-switch(str){
-case "down":
-var x=document.getElementById('i1').offsetTop;
-x= x + step;
-document.getElementById('i1').style.top= x + "px";
-break;
 
-case "up":
-var x=document.getElementById('i1').offsetTop;
-x= x -step;
-document.getElementById('i1').style.top= x + "px";
-break;
-
-case "left":
-var y=document.getElementById('i1').offsetLeft;
-y= y - step;
-document.getElementById('i1').style.left= y + "px";
-break;
-
-case "right":
-var y=document.getElementById('i1').offsetLeft;
-y= y + step;
-document.getElementById('i1').style.left= y + "px";
-break;
-}
-}
-//-->
-</script>
-</head>
-<body>
-<img src=images/help.jpg id='i1' 
-  style="position:absolute; left: 500; top: 100;">
-<br><br><br><br>
-<input type=button onClick=move_img('up') value='Up'>
-<br>
-<input type=button onClick=move_img('left') value='Left'>
-<input type=button onClick=move_img('right') value='right'>
-<br>
-<input type=button onClick=move_img('down') value='down'>
-<br><br> Return to <a href=image-move.php>image move tutorial</a>
-</body> 
-  
-  
-  
-  
-  
-  
-  
   
   
   
