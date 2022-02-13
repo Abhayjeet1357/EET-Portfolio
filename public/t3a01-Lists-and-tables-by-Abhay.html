@@ -8,7 +8,7 @@
 function reset1(){
 clearTimeout(my_time);
 document.getElementById('i1').style.left= "100px";
-document.getElementById('i1').style.top= "2900px";
+document.getElementById('i1').style.top= "3000px";
 document.getElementById("msg").innerHTML="";
 }
 
@@ -21,9 +21,10 @@ if(y < 3200){y= y +step;
 document.getElementById('i1').style.top= y + "px"; // vertical movment
 }else{
 if(x < 900){x= x +step;
-document.getElementById('i1').style.left= x + "px";//horizontal move
+document.getElementById('i1').style.left= x + "px";//horizontal movement
 }
 }
+
 //////////////////////
 }
 
@@ -82,7 +83,7 @@ ol.d {list-style-type: decimal-leading-zero;}
 }
   </style>
   </head>
-  <h1 align=center><span>Version 1.14.45</span></h1>
+  <h1 align=center><span>Version 1.14.46</span></h1>
 <h4 align=center> T3A02-Lists-and-Tables-by-Abhay</h4>
 
   
@@ -166,7 +167,7 @@ ol.d {list-style-type: decimal-leading-zero;}
   
   
 <img src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/download.jpg?raw=true" id='i1' 
-  style="position:absolute; left: 100; top: 2900;">
+  style="position:absolute; left: 100; top: 3000;">
 <br><br><br><br>
 <input type=button class="button" onClick=timer() value='Start'>
 <input type=button class="button" onClick=reset1() value='Reset'>
