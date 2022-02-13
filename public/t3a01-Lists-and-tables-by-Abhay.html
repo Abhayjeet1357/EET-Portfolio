@@ -4,6 +4,35 @@
   <title> T3A01-Lists-and-Tables-by-Abhay.html</title>
   <body>
     <script>
+      <!--
+function reset1(){
+clearTimeout(my_time);
+document.getElementById('i1').style.left= "500px";
+document.getElementById('i1').style.top= "100px";
+document.getElementById("msg").innerHTML="";
+}
+
+function disp(){
+var step=1; // Change this step value
+//alert("Hello");
+var y=document.getElementById('i1').offsetTop;
+var x=document.getElementById('i1').offsetLeft;
+document.getElementById("msg").innerHTML="X: " + x  + " Y : " + y
+if(y < 400 ){y= y +step;
+document.getElementById('i1').style.top= y + "px"; // vertical movment
+}else{
+if(x < 800){x= x +step;
+document.getElementById('i1').style.left= x + "px";//horizontal move
+}
+}
+//////////////////////
+}
+
+function timer(){
+disp();
+my_time=setTimeout('timer()',5);
+}
+//-->
       
 var timerid = null;
 
@@ -72,7 +101,7 @@ ol.d {list-style-type: decimal-leading-zero;}
     }
   </style>
   </head>
-  <h1 align=center>Version 0.9.33</h1>
+  <h1 align=center>Version 0.9.34</h1>
 
   
   <h1>Favourite Foods</h1>
@@ -144,11 +173,16 @@ ol.d {list-style-type: decimal-leading-zero;}
 <div>
 <button id="button1" type="button" style="position:absolute;left:10px;top:190px"/>START</button>
 <button id="button2" type="button" style="position:absolute;left:10px;top:220px"/>STOP & RESET</button>
-</div>
+</div> <br><br><br>
     
   
   
-
+<img src=Earth.png id='i1' 
+  style="position:absolute; left: 500; top: 100;">
+<br><br><br><br>
+<input type=button onClick=timer() value='Start'>
+<input type=button onClick=reset1() value='Reset'>
+<div id='msg'></div>
 
   
   
