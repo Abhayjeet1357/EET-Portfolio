@@ -15,12 +15,6 @@ h5{
 	font-size:xx-large;
 	color:gold;
 	}
-h1{
-	color:white;
-	text-decoration:underline;
-	text-shadow:2px 2px #00FFFF;
-	font-size:xx-large;
-	}
  </style>
 
 
@@ -28,14 +22,22 @@ h1{
   
     <title> T3A03-forms-by-Abhay.html</title>
 
-  <h5 align=center>Version 0.7.32</h5>
+  <h5 align=center>Version 0.9.41</h5>
 <h1 align=center>T3A03-forms-Abhay.html</h1>
 
 <h5><li> Create an account in Abhay's Game </h5> <br> <br>
-Create a Username: <input id="mytext01"type=text"><br>
+Create a Username: <input id="name"type="text" name="name"><br>
 Create a Login ID:<input id="mynum01"type=number"><br>
 Create a Password:<input type="password"><br> <br> <br>
- 
+<button onclick="change_text()">Submit</button> 
+<script>
+function change_text(){
+    var name = document.getElementById("name").value;
+    document.getElementById("demo").innerHTML = "Hello, " + name +" Thanks for making an account with us! Enjoy";
+}
+</script>
+
+<p id="demo"></p>
 <h5><li> Choose your character's eye color. </h5> <br> <br>
 
 Hazel: <input name="Abhay" type="radio"><br>
@@ -49,14 +51,24 @@ Sword: <input type="checkbox"><br>
 Crossbow: <input type="checkbox"><br>
 Shield: <input type="checkbox"><br>
 Gun: <input type="checkbox"><br>
-Bat: <input type="checkbox"><br> <br> <br>
+Bat: <input type="checkbox" id="lmao"><br> <br> <br>
+<script>
+document.getElementById("lmao").addEventListener("input", myFunction);
+
+function myFunction() {
+  alert("Really?A Bat, you want a bat?");
+}
+</script>
+
 
 <h5><li> Choose your Character's power </h5> <br> <br>
 
 Fire: <input name="Abhay" type="radio"><br>
 Water: <input name="Abhay" type="radio"><br>
 Air: <input name="Abhay" type="radio"><br>
-Gravity: <input name="Abhay" type="radio"><br> <br> <br> 
+Gravity: <input name="Abhay" type="radio" id="lol"><br> <br> <br> 
+
+
 
 <h5><li> Choose your character's gender </h5> <br> <br>
 
@@ -103,4 +115,32 @@ Select Box:<BR>
 	document.getElementById('myArea01').value='this works!'
 	}">Three<br>
 </select>
-</form>
+</form><br><br><br>
+
+<button ondblclick="myFunction()">Double-click me</button>
+
+<p id="gg"></p>
+
+<script>
+function myFunction() {
+  document.getElementById("gg").innerHTML="You double clicked me!"
+
+}
+</script>
+
+<br><br>Hover over this image!
+<br><br><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/penguin3.jpg?raw=true" alt="Smiley" width="500" height="300">
+
+
+<script>
+function bigImg(x) {
+  x.style.height = "500px";
+  x.style.width = "700px";
+}
+
+function normalImg(x) {
+  x.style.height = "300px";
+  x.style.width = "500px";
+}
+</script>
+
