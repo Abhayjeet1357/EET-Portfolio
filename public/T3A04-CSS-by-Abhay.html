@@ -3,8 +3,8 @@
       <!--
 function reset1(){
 clearTimeout(my_time);
-document.getElementById('i1').style.left= "100px";
-document.getElementById('i1').style.top= "3000px";
+document.getElementById('i1').style.left= "0px";
+document.getElementById('i1').style.top= "0px";
 document.getElementById("msg").innerHTML="";
 }
 
@@ -13,13 +13,13 @@ var step=3;
 var y=document.getElementById('i1').offsetTop;
 var x=document.getElementById('i1').offsetLeft;
 document.getElementById("msg").innerHTML="X: " + x  + " Y : " + y
-if(y < 3200){y= y +step;
+if(y < 500){y= y +step;
 document.getElementById('i1').style.top= y + "px"; // vertical movment
-}else{
-if(x < 900){x= x +step;
+}
+if(x < 1000){x= x +step;
 document.getElementById('i1').style.left= x + "px";//horizontal movement
 }
-}
+
 
 //////////////////////
 }
@@ -51,15 +51,15 @@ my_time=setTimeout('timer()',5);
      background-color: #f44439;
      color:#39E8F4;
      display: inline-block;
-     font-size: 16px;
-     text-shadow: 2px 2px #ffffff;
+     font-size: 20px;
+    
     }
    body  {
   background-image: url("https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/proper3.jpg?raw=true");
   background-color: #ccccc;
 }
   </style>
-Version 0.4.22</br>
+Version 0.6.33</br>
 <h1 align=center>T1A04 CSS by Fred</h1>
 
 Reference Link 
