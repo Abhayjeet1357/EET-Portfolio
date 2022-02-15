@@ -45,12 +45,21 @@ my_time=setTimeout('timer()',5);
   font-size: 16px;
   cursor: pointer;
 }
+    .button1 {
+     cursor:pointer;
+     text-align:center;
+     background-color: #f44439;
+     color:#39E8F4;
+     display: inline-block;
+     font-size: 16px;
+     text-shadow: 2px 2px #ffffff;
+    }
    body  {
   background-image: url("https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/proper3.jpg?raw=true");
   background-color: #ccccc;
 }
   </style>
-Version 0.3.22</br>
+Version 0.4.22</br>
 <h1 align=center>T1A04 CSS by Fred</h1>
 
 Reference Link 
@@ -104,8 +113,8 @@ Advanced see if you move this textarea
 </marquee>
 Try to catch the santa!
 
-<input type="button" value="Start Image Move" onClick="document.getElementById('mymarquee1').start(); document.getElementById('mymarquee2').start(); document.getElementById('myDiv01').innerHTML = 'Moving';">
-<input type="button" value="Stop Image Move" onClick="document.getElementById('mymarquee1').stop(); document.getElementById('mymarquee2').stop(); document.getElementById('myDiv01').innerHTML = 'Stopped';">
+<input type="button" class="button1" value="Start" onClick="document.getElementById('mymarquee1').start(); document.getElementById('mymarquee2').start(); document.getElementById('myDiv01').innerHTML = 'Moving';">
+<input type="button" class="button1" value="Stop" onClick="document.getElementById('mymarquee1').stop(); document.getElementById('mymarquee2').stop(); document.getElementById('myDiv01').innerHTML = 'Stopped';">
 
       <div id="myDiv01">...</div>
 
