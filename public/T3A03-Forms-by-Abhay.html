@@ -22,10 +22,41 @@ h5{
 		text-shadow:1px 1px #00FFFF;
 	}
 	
-	 .img-container {
-        text-align: center;
-        display: block;
-      }
+	.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+
  </style>
 
 
@@ -33,7 +64,7 @@ h5{
   
     <title> T3A03-forms-by-Abhay.html</title>
 
-  <h5 align=center>Version 1.9.47</h5>
+  <h5 align=center>Version 1.10.47</h5>
 <h1 align=center>T3A03-forms-Abhay.html</h1>
 
 <h5><li> Create an account in Abhay's Game </h5> <br> <br>
@@ -137,10 +168,9 @@ Select Box:<BR>
 <p id="gg"></p>
 
 	
-	 <span class="img-container"> 
-      <img width=700
-      src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Basic%231.jpg?raw=true" alt="R">>
-    </span>
+	<body>
+<h1 align=center><img src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/proper3.jpg?raw=true" alt="Electric Car" width="700" height="500"></h1> <br> <br> <br>
+</body>
 
 <script>
 function myFunction() {
