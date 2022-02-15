@@ -1,11 +1,44 @@
 <html style="color:white;font-size:x-large;text-shadow: 1px 1px #52cdd7"><br>
-<style>
+ <script>
+      <!--
+function reset1(){
+clearTimeout(my_time);
+document.getElementById('i1').style.left= "100px";
+document.getElementById('i1').style.top= "3000px";
+document.getElementById("msg").innerHTML="";
+}
+
+function disp(){
+var step=3; 
+var y=document.getElementById('i1').offsetTop;
+var x=document.getElementById('i1').offsetLeft;
+document.getElementById("msg").innerHTML="X: " + x  + " Y : " + y
+if(y < 3200){y= y +step;
+document.getElementById('i1').style.top= y + "px"; // vertical movment
+}else{
+if(x < 900){x= x +step;
+document.getElementById('i1').style.left= x + "px";//horizontal movement
+}
+}
+
+//////////////////////
+}
+
+function timer(){
+disp();
+my_time=setTimeout('timer()',5);
+}
+//-->
+      
+
+    </script>
+   <style>
    body  {
   background-image: url("https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/proper3.jpg?raw=true");
   background-color: #ccccc;
 }
   </style>
-Version 0.2.18</br>
+Version 0.3.18</br>
 <h1 align=center>T1A04 CSS by Fred</h1>
 
 Reference Link 
@@ -35,10 +68,12 @@ I do CSS inside the tag. It overpowers all other methods<br>
 
 
 
-<textarea style="position:relative; left:0; top:0; width:200; height:50; ">
+<textarea style="position:relative; left:0; top:0; width:200; height:50;id="i1" ">
 Advanced see if you move this textarea
 </textarea><br>
-
+<input type=button class="button" onClick=timer() value='Start'>
+<input type=button class="button" onClick=reset1() value='Reset'>
+<div id='msg'></div><br><Br><br>
 
 
 <body onload="document.getElementById('mymarquee1').stop();document.getElementById('mymarquee2').stop();">
