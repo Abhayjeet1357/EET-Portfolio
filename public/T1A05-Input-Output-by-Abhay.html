@@ -1,5 +1,6 @@
 <html style="color:white;text-shadow:1px 1px gray; font-size:x-large">      
-  <title>
+  <script> let mySound2= new Audio('https://sd75-my.sharepoint.com/personal/2293216_learn75_ca/Documents/g10-Sid-Abhay-web-design-marking/public/Final-Project-Abhay/Media-Abhay/1.m4a') </script>
+<title>
       T1A05-Input-Output-by-Abhay
     </title>
     <style>
@@ -51,6 +52,7 @@ font-size: 18px;
 text-shadow:none;
   }
 
+
 .
 </style>
      <p id = "GFG_UP" style =
@@ -64,6 +66,7 @@ text-shadow:none;
         </p>
           
         <script>
+
 
             var el_up = document.getElementById("GFG_UP");
             var el_down = document.getElementById("GFG_DOWN");
@@ -83,7 +86,7 @@ text-shadow:none;
     </body> 
 
 
-Version 0.7.23
+Version 0.12.25
 
 <h2 align=center>t1a05-input output by Abhay</h2>
 
@@ -124,26 +127,56 @@ Version 0.7.23
 <input type="text" id="myTextIn1" value="3.45" size="30">  + <input type="text" id="myTextIn2" value="6.78" size="30"> <br><br>
 
 <input id="myButton124" type="button" class="button2" value="Add the numbers as rounded integers" onclick="{
-
-
  var my1 = document.getElementById('myTextIn1').value  
    var my2 = document.getElementById('myTextIn2').value
-
  document.getElementById('myDiv02').innerHTML +=  'Numbers added as rounded integers ' +  my1 + ' + ' +  my2 + ' = ' +  (Math.round(my1) + Math.round(my2))  + '<br>'
-
 }"><br><br>
 
-<div id="myDiv02"></div><br><br><br>
+<div id="myDiv02"></div><br><br>
 
 
 
+What's your name? <input id="name"type="text" name="name"><br><br>
+
+<button class="button2" onclick="change_text()">Submit</button> 
+<script>
+function change_text(){
+    var name = document.getElementById("name").value;
+    document.getElementById("demo").innerHTML = "Hello, " + name +" ! Enjoy";
+}
+</script>
+
+<p id="demo"></p><br><br>
+
+<body>
+    <button class="button2" id="toBlue">Blue</button>
+    <button class="button2" id="toGreen">Green</button>
+    <button class="button2" id="toRed">Red</button>
+    <div>
+        <p id="output_text">Click the button to change the color.</p>
+    </div>
+    <script>
+
+        document.getElementById("toBlue").onclick = function () {
+            document.getElementById("output_text").style.color = 'blue';
+        }
+
+        document.getElementById("toGreen").onclick = function () {
+            document.getElementById("output_text").style.color = 'green';
+        }
+
+        document.getElementById("toRed").onclick = function () {
+            document.getElementById("output_text").style.color = '#FF0000';
+        }
+
+    </script>
+</body>
 
 
-
-
-
-
-
+<b onClick="{
+	mySound2.play()
+}"> Click me to play the sound!  </b>
+<br> <br>
 
 
 
