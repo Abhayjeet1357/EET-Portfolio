@@ -1,8 +1,119 @@
-Version 0.0.1
+<html style="color:white;
+		font-size:x-large;
+		text-shadow:1px 1px #00FFFF;"><br>
+<head>
 
-<h2 align=center>t1a06-varaibles-by-Fred.html</h2>
+  <script>
+   
+  </script>
 
-<a href="">You Fix: Good reference to Variables in Javascript 
+<style>
+
+.button {
+  background-color: #555555;
+  border: dotted;
+  color: white;
+     text-shadow: 2px 2px gray;
+
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: text;
+transition: 0.25s linear;
+}
+
+.button2 {
+  background-color: #da9525;
+  border: solid;
+  color: #256ADA;
+     text-shadow: 1px 1px #000000;
+
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+transition: 0.25s linear;
+}
+.button2:hover{
+    background-color: #fff;
+    border: 1px solid #1E88E5;
+    color: #1E88E5;
+font-size: 18px;
+text-decoration:underline;
+text-shadow:none;
+  }
+
+
+    body  {
+  background-image: url("https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/c469fe0e14f5cdc10531efc41b91d32e.jpg?raw=true");
+  background-color: #ccccc;
+}
+h5{
+	font-size:xxx-large;
+	color:gold;
+text-decoration:underline;
+text-shadow:1px 1px #ffffff
+	}
+	h1{
+		color:white;
+		font-size:xx-large;
+		text-shadow:1px 1px #00FFFF;
+	}
+	
+	.container {
+  position: relative;
+  width: 50%;
+}
+	.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+
+ </style>
+
+
+</head>
+  
+    <title> T3A06-Variables-by-Abhay.html</title>
+
+  <h1 align=center>Version 0.4.14</h1>
+<h5 align=center>T3A06-Variables-Abhay.html</h5>
+
+<a style="text-shadow:none;color:pink;"href="https://www.w3schools.com/python/python_variables.asp">You Fix: Good reference to Variables in Javascript 
 and other languages</a><br>
 
 Other Languages use: bool, int, float, char, string, 
@@ -20,19 +131,66 @@ For Global variables Mr. Ellis prefers to use document.myVarName
 
 <h4> Example working code</h4>
 
-<input id="myText01" type=text value="The dog " >
-<input id="myText02" type=text value="The cat " > <br>
+<input id="myText01" class="button" type=text value="The dog " >
+<input id="myText02" class="button" type=text value="The cat " > <br> <br>
 
 
-<input type=button value="Show Variable" onclick="{
+<input type=button class="button2" value="Show Variable" onclick="{
     let myIn01 = document.getElementById('myText01').value
     document.getElementById('myDiv01').innerHTML = myIn01
+}"><br> <br>
 
-}"><br>
-
-<input type=button value="Using no variable" onclick="{
+<input type=button class="button2" value="Using no variable" onclick="{
    document.getElementById('myDiv01').innerHTML = 
        document.getElementById('myText02').value
 }"><br>
 
-<div id="myDiv01">...</div>
+<div id="myDiv01">...</div><br><br>
+
+
+
+
+
+What's your favourite color? <input class="button" id="name"type="text" value="Type Here"  name="name"><br><br>
+
+
+
+<script>
+function myFunction() {
+  alert("My favourite color is Blue!");
+}
+function myFunction2() {
+  alert("Yes! Blue is the best color");
+}
+</script>
+
+
+
+
+
+
+
+
+<button class="button2" onclick="myFunction()">Click me to find out what my favourite color is</button><br><br><br>
+
+
+
+
+
+
+
+
+
+
+Do you like my favourite color?<br><br>
+<button class="button2" onclick="myFunction2()">Yes</button><br><br>
+
+<button class="button2" onclick="change_text()">NO</button> 
+<script>
+function change_text(){
+    var name = document.getElementById("name").value;
+    document.getElementById("demo").innerHTML = "I guess, " + name +" is a good color too";
+}
+</script>
+
+<p id="demo"></p><br><br>
