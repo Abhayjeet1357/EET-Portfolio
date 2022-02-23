@@ -86,7 +86,8 @@ text-shadow:none;
     </body> 
 
 
-Version 0.12.26
+
+Version 0.15.30
 
 <h2 align=center>t1a05-input output by Abhay</h2>
 
@@ -130,9 +131,10 @@ Version 0.12.26
  var my1 = document.getElementById('myTextIn1').value  
    var my2 = document.getElementById('myTextIn2').value
  document.getElementById('myDiv02').innerHTML +=  'Numbers added as rounded integers ' +  my1 + ' + ' +  my2 + ' = ' +  (Math.round(my1) + Math.round(my2))  + '<br>'
-}"><br><br>
+}">                                                      <button class="button2" onClick="window.location.reload();">Click to refresh</button><br><br><br><br>
 
-<div id="myDiv02"></div><br><br>
+<div id="myDiv02"></div>
+<br><br>
 
 
 
@@ -179,6 +181,19 @@ function change_text(){
 <br> <br>
 
 
+<input type="text" id="myTextIn1" value="3.45" size="30">  + <input type="text" id="myTextIn2" value="6.78" size="30"> <br><Br>
+
+<input id="myButton124" type="button" class="button2" value="Add the numbers" onclick="{
+
+   var my1 = document.getElementById('myTextIn1').value  
+   var my2 = document.getElementById('myTextIn2').value
+ document.getElementById('myDiv124').innerHTML +=  'Numbers added ' +  my1 + ' + ' +  my2 + ' = ' +  (my1*1 + my2*1)  + '<br>'                                                       
+                                                             
+                                                              
+}">                                                      <button class="button2" onClick="window.location.reload();">Click to refresh</button><br>
+<br><br>
+
+<div id='myDiv124'></div><br>
 
 
 
