@@ -1,9 +1,68 @@
-Version 0.0.1
+<html style="color:white;text-shadow:1px 1px #926D80; font-size:x-large; font-style:italic;"> 
+<title>
+      T1A07-Decisions-by-Abhay
+    </title>
+    <style>
+body{ background-color:#6D927F;
+}
 
-<h2 align=center>t1a07-decision-by-Fred.html</h2>
+ .button {
+  background-color: gray;;
+  border: 2px solid #ffffff;
+  color: white;
+     text-shadow: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: crosshair;
+transition: 0.25s linear;
+}
+
+.button:hover{
+    background-color: #5e99a1;
+    border: 2px solid #64739B;
+    color: white;
+font-size: 18px;
+text-shadow:none;
+  }
+
+ .button2 {
+  background-color: #9E8861;;
+  border: dotted #52adab;
+  color: white;
+     text-shadow: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: grab;
+transition: 0.25s linear;
+}
+
+.button2:hover{
+    background-color: #fff;
+    border: 1px solid #1E88E5;
+    color: #1E88E5;
+font-size: 18px;
+text-shadow:none;
+  }
+</style>
+
+
+
+
+
+Version 0.8.13
+
+<h2 align=center>T1A07-Decision-by-Abhay.html</h2>
 
 <a href="https://www.w3schools.com/js/js_if_else.asp">Good reference to Decisions if ... else statments 
-Javascript innerHTML value by Fred</a><br>
+Javascript innerHTML value by Abhay</a><br>
 Note: ! = Not,  && = AND,   || = OR
 
 <h4> Example input output code</h4>
@@ -16,30 +75,101 @@ if (myHour < 18) {
 
 <h4> Example working code</h4>
 
-<input id="myNum01" type=number value="4" ><br> 
+<input id="myNum01" class="button" type=number value="4" ><br> <br>
 
-<input type=button value="Simple if Statement for Decision Making" onclick="{
+<input type=button class="button2" value="Simple if Statement for Decision Making" onclick="{
     let myIn01 = parseFloat(document.getElementById('myNum01').value)
     if (myIn01 >= 3){
         document.getElementById('myDiv01').innerHTML = myIn01 + ' is greater than 3'
     }
 }">
 
-<input type=button value="if...else" onclick="{
-    let myIn01 = parseFloat(document.getElementById('myNum01').value)
-    if (myIn01 >= 3){
-        document.getElementById('myDiv01').innerHTML = myIn01 + ' is greater than 3'
+<input type=button class="button2" value="if...else" onclick="{
+    let myIn03 = parseFloat(document.getElementById('myNum01').value)
+    if (myIn03 > 3){
+        document.getElementById('myDiv01').innerHTML = myIn03 + ' is greater than 3'
     } else {
-        document.getElementById('myDiv01').innerHTML = myIn01 + ' is less than 3'}
+        document.getElementById('myDiv01').innerHTML = myIn03 + ' is less than 3'}
 }">
 
-<input type=button value="Complex if" onclick="{
-    let myIn01 = parseFloat(document.getElementById('myNum01').value)
-    if ((myIn01 != 3 || myIn01 > -3)  && myIn01 <=100 ){
-        document.getElementById('myDiv01').innerHTML = myIn01 + ' is complex'
+<input type=button class="button2" value="Complex if" onclick="{
+    let myIn03 = parseFloat(document.getElementById('myNum01').value)
+    if ((myIn03 != 3 || myIn03 > -3)  && myIn03 <=100 ){
+        document.getElementById('myDiv01').innerHTML = myIn03 + ' is complex'
     } else {
-        document.getElementById('myDiv01').innerHTML = myIn01 + ' is not complex'}
+        document.getElementById('myDiv01').innerHTML = myIn03 + ' is not complex'}
 }">
 
 
-<div id="myDiv01">...</div>
+<div id="myDiv01">...</div><br><br>
+
+
+
+What's your favourite number? <br><br>
+<input type="number" value="4" class="button" id="text02"><br><br>
+<input type="button" class="button2" id="button2" value="Click me to find out if we have the same favourite number" onclick="{
+ let myIn02 = parseFloat(document.getElementById('text02').value)
+    if (myIn02 == 7){
+        document.getElementById('myDiv02').innerHTML = 'Nice, my favourite number is also ' + myIn02
+    }  else {
+        document.getElementById('myDiv02').innerHTML = myIn02 + ' is not my favourite number (*Hint* Try 7)'}
+}">
+<input id="myButton126" type="button" class="button2" value="Click me for some facts about your number." onclick="{
+    
+ let myIn01 = parseFloat(document.getElementById('text02').value)
+    let myAnswer = myIn01 * myIn01
+    document.getElementById('myDiv126').innerHTML = 
+      myIn01 + ' squared = ' + myAnswer 
+ let myIn91 = parseFloat(document.getElementById('text02').value)
+    let myAnswer1 = myIn91 + myIn91
+    document.getElementById('myDiv126').innerHTML = 
+      myIn91 + ' doubled = ' + myAnswer1 + '<br><br>	'  +  myIn01 + ' squared = ' + myAnswer +'<br>'
+  
+                                                                    
+   myIf =   document.getElementById('text02').value   
+     
+   if (myIf == 4){                                                                
+      document.getElementById('myDiv126').innerHTML += '<br> That number equals 4 <br>'
+   }   else{
+	document.getElementById('myDiv126').innerHTML += '<br> That number does not equal to 4 <br>'
+     }                                                               
+   if (myIf <= 4){                                                                
+      document.getElementById('myDiv126').innerHTML += '<br>That number is less than 4 <br>'
+   }  
+                                                                            
+   if (Math.abs(myIf) == 4){                                                               
+      document.getElementById('myDiv126').innerHTML += '<br>That number is either positive or negative 4<br>'
+   }  
+                                                                        
+   if (myIf < 0){                                                                
+      document.getElementById('myDiv126').innerHTML += '<br>That number is a negative number<br>'
+   }  
+   if (myIf > 0){                                                                
+      document.getElementById('myDiv126').innerHTML += '<br>That number is a Positive number<br>'
+   } 
+                                                                    
+   if (myIf == 4){                                                                
+      document.getElementById('myDiv126').innerHTML += '<br>That number is less than or equal to 4 <br>'
+   }   
+                                                                    
+   if (myIf >= 4){                                                                
+      document.getElementById('myDiv126').innerHTML += '<br>That number is greater than or equal to 4 <br>'
+   }   
+                                                                    
+      if ((myIf < 4) &amp;&amp; (myIf > 8)) {                                                                
+      document.getElementById('myDiv126').innerHTML += '<br>That number is smaller than 8 and bigger than 4<br>'
+   }                                                              
+                                                                    
+                                                                    
+                                                                    
+                                                                   
+}"><br><br>
+
+<div id="myDiv02">...</div><br>
+
+<div id="myDiv126">...</div><br><br>
+
+
+
+
+
