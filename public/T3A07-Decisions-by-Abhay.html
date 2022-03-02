@@ -57,7 +57,7 @@ text-shadow:none;
 
 
 
-Version 0.8.17
+Version 0.11.17
 
 <h2 align=center>T1A07-Decision-by-Abhay.html</h2>
 
@@ -106,8 +106,27 @@ if (myHour < 18) {
 
 
 
+
+
+
+
+What's your name?<Br><br>
+<input type="text" value="Ellis" class="button" id="text85"><br><br>
+<input type="button"  class="button2" value="Click me!" id="button3" onclick="{
+ var myIn78 = document.getElementById('text85').value
+    if (myIn78 == 'Ellis'){
+        document.getElementById('myDiv97').innerHTML = 'Hello, Mr. Ellis. ' 
+    }  else {
+        document.getElementById('myDiv97').innerHTML = 'You're not Mr. Ellis'}
+}"><br><br><br>
+
+<div id="myDiv97">...</div><br><br><br>
+
+
+
 What's your favourite number? <br><br>
-<input type="number" value="4" class="button" id="text02"><br><br>
+<input type="number" value="4" class="button" id="text02">
+<br><br>
 <input type="button" class="button2" id="button2" value="Click me to find out if we have the same favourite number" onclick="{
  let myIn02 = parseFloat(document.getElementById('text02').value)
     if (myIn02 == 7){
@@ -129,7 +148,7 @@ What's your favourite number? <br><br>
                                                                     
    myIf =   document.getElementById('text02').value   
      
-   if (myIf == 4){                                                                
+  if (myIf == 4){                                                                
       document.getElementById('myDiv126').innerHTML += '<br> That number equals 4 <br>'
    }   else{
 	document.getElementById('myDiv126').innerHTML += '<br> That number does not equal to 4 <br>'
@@ -139,7 +158,6 @@ What's your favourite number? <br><br>
    }  else{
 	document.getElementById('myDiv126').innerHTML += '<br> That number is more than 4 <br>'
      } 
-
                                                                             
    if (Math.abs(myIf) == 4){                                                               
       document.getElementById('myDiv126').innerHTML += '<br>That number is either positive or negative 4<br>'
@@ -172,5 +190,3 @@ What's your favourite number? <br><br>
 <div id="myDiv02">...</div><br>
 
 <div id="myDiv126">...</div><br><br>
-
-
