@@ -15,7 +15,7 @@ body{ background-color:#6D927F;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: inline-block;  
   font-size: 18px;
   cursor: crosshair;
 transition: 0.25s linear;
@@ -57,7 +57,7 @@ text-shadow:none;
 
 
 
-Version 0.8.13
+Version 0.8.17
 
 <h2 align=center>T1A07-Decision-by-Abhay.html</h2>
 
@@ -83,6 +83,7 @@ if (myHour < 18) {
         document.getElementById('myDiv01').innerHTML = myIn01 + ' is greater than 3'
     }
 }">
+
 
 <input type=button class="button2" value="if...else" onclick="{
     let myIn03 = parseFloat(document.getElementById('myNum01').value)
@@ -134,8 +135,11 @@ What's your favourite number? <br><br>
 	document.getElementById('myDiv126').innerHTML += '<br> That number does not equal to 4 <br>'
      }                                                               
    if (myIf <= 4){                                                                
-      document.getElementById('myDiv126').innerHTML += '<br>That number is less than 4 <br>'
-   }  
+      document.getElementById('myDiv126').innerHTML += '<br>That number is less than or equal to 4 <br>'
+   }  else{
+	document.getElementById('myDiv126').innerHTML += '<br> That number is more than 4 <br>'
+     } 
+
                                                                             
    if (Math.abs(myIf) == 4){                                                               
       document.getElementById('myDiv126').innerHTML += '<br>That number is either positive or negative 4<br>'
@@ -168,8 +172,5 @@ What's your favourite number? <br><br>
 <div id="myDiv02">...</div><br>
 
 <div id="myDiv126">...</div><br><br>
-
-
-
 
 
