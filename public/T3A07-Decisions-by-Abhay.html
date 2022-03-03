@@ -121,7 +121,21 @@ function changeImage() {
 }
 </script>
 
+<br><br><br>
 
+
+How old are you?<br><br>
+<input type="number" value="4" class="button" id="text00">
+<br><br>
+<input type="button" class="button2" id="button9" value="Click me!" onclick="{
+ let myIn00 = parseFloat(document.getElementById('text00').value)
+    if (myIn00 > 18){
+        document.getElementById('myDiv00').innerHTML = 'You are an adult. ' 
+    }  else {
+        document.getElementById('myDiv00').innerHTML = Your are a child.'}
+}">
+
+<div id="myDiv00">...</div><br><br><br>
 
 What's your favourite number? <br><br>
 <input type="number" value="4" class="button" id="text02">
