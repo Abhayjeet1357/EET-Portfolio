@@ -51,13 +51,14 @@ transition: 0.25s linear;
 font-size: 18px;
 text-shadow:none;
   }
+
 </style>
 
 
 
 
 
-Version 0.11.17
+Version 0.17.20
 
 <h2 align=center>T1A07-Decision-by-Abhay.html</h2>
 
@@ -105,22 +106,20 @@ if (myHour < 18) {
 <div id="myDiv01">...</div><br><br>
 
 
+<img id="myImage" onclick="changeImage()" src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/pic_bulboff.gif?raw=true" width="100" height="180">
 
+<p>Click the light bulb to turn on/off the light.</p>
 
-
-
-
-What's your name?<Br><br>
-<input type="text" value="Ellis" class="button" id="text85"><br><br>
-<input type="button"  class="button2" value="Click me!" id="button3" onclick="{
- var myIn78 = document.getElementById('text85').value
-    if (myIn78 == 'Ellis'){
-        document.getElementById('myDiv97').innerHTML = 'Hello, Mr. Ellis. ' 
-    }  else {
-        document.getElementById('myDiv97').innerHTML = 'You're not Mr. Ellis'}
-}"><br><br><br>
-
-<div id="myDiv97">...</div><br><br><br>
+<script>
+function changeImage() {
+  var image = document.getElementById("myImage");
+  if (image.src.match("bulbon")) {
+    image.src = "https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/pic_bulboff.gif?raw=true";
+  } else {
+    image.src = "https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/pic_bulbon.gif?raw=true";
+  }
+}
+</script>
 
 
 
