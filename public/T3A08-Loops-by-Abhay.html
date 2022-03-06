@@ -8,13 +8,28 @@ body {
  background-repeat: no-repeat;
  background-size: 100%;
  background-position: center;
+background-attachment: fixed;
 } 
+
+
+ .mycode{
+	display: block; 
+	padding: 3px 3px 2px; 
+	font-size: 14px; 
+	line-height: 20px;
+	width: 100%;
+	background-color: #333;
+	font-family: arial;
+	color: #f7f7f7;
+	font-weight: bold;
+}
+
 
 </style>
 
 
 
-Version 0.0.9
+Version 1.6.19
 
 <h2 align=center>T1A08-Loops-by-Abhay.html</h2>
 
@@ -83,3 +98,166 @@ Max loops: <input id="myNum01" type=number value="4" ><br>
 }">
 
 <div id="myDiv01"><font color=red>...</font></div>
+<br><br>
+
+The for in statement loops through the properties of an object:
+
+<p id="demo23"></p>
+
+<script>
+const person = {fname:"John", lname:"Doe", age:25}; 
+
+let txt = "";
+for (let x in person) {
+  txt += person[x] + " ";
+}
+
+document.getElementById("demo23").innerHTML = txt;
+</script>
+
+
+<pre class="mycode">
+&lt;p id="lhk"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+const person = {fname:"John", lname:"Doe", age:25}; 
+
+let txt = "";
+for (let x in person) {
+  txt += person[x] + " ";
+}
+
+document.getElementById("lhk").innerHTML = txt;
+&lt;/script&gt;
+</pre>
+<body>
+
+<p>The for of statement loops through the values of any iterable object:</p>
+
+<p id="gfh"></p>
+
+<script>
+const cars = ["BMW", "Tesla", "Mercedes"];
+
+let text = "";
+for (let x of cars) {
+  text += x + "<br>";
+}
+
+document.getElementById("gfh").innerHTML = text;
+</script>
+
+
+<pre class="mycode">
+
+&lt;p id="gfh">&lt;/p&gt;
+
+&lt;script&gt;
+const cars = ["BMW", "Tesla", "Mercedes"];
+
+let text = "";
+for (let x of cars) {
+  text += x + "<br>";
+}
+
+document.getElementById("gfh").innerHTML = text;
+&lt;/script&gt;
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+JavaScript While Loop
+<p id="gg"></p>
+
+<script>
+let sk = "";
+let s = 0;
+while (s < 10) {
+  sk += "<br>The number is " + s;
+  s++;
+}
+document.getElementById("gg").innerHTML = sk;
+</script>
+
+<pre class="mycode">
+
+JavaScript While Loop
+&lt;p id="gg"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+let sk = "";
+let s = 0;
+while (s < 10) {
+  sk += "<br>The number is " + s;
+  s++;
+}
+document.getElementById("gg").innerHTML = sk;
+&lt;/script&gt;
+
+</pre>
+
+
+
+
+<br>
+Javascript do while loop
+
+<p id="pso"></p>
+
+<script>
+let t = ""
+let w = 0;
+
+do {
+  t += "<br>The number is " + w;
+  w++;
+}
+while (w < 15);  
+
+document.getElementById("pso").innerHTML = t;
+</script>
+
+
+<pre class="mycode">
+
+Javascript do while loop
+
+&lt;p id="pso"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+let t = ""
+let w = 0;
+
+do {
+  t += "<br>The number is " + w;
+  w++;
+}
+while (w < 15);  
+
+document.getElementById("pso").innerHTML = t;
+&lt;/script&gt;
+
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
