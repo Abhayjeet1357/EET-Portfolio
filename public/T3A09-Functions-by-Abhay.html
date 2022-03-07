@@ -2,6 +2,31 @@
  <title>
 T3A09-Functions-by-Abhay
 </title>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").html("Yes, <b>it actually worked!</b>");
+  });
+});
+
+
+$(document).ready(function(){
+  $("button2").click(function(){
+    var div = $("div");
+    div.animate({height: '300px', opacity: '0.4'}, "slow");
+    div.animate({width: '300px', opacity: '0.8'}, "slow");
+    div.animate({height: '100px', opacity: '0.4'}, "slow");
+    div.animate({width: '100px', opacity: '0.8'}, "slow");
+  });
+});
+</script>
+
+
+</head>
+
+
 
 <style>
 
@@ -9,6 +34,7 @@ T3A09-Functions-by-Abhay
   background-image: url("https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Functions.jpg?raw=true");
   background-repeat: no-repeat;
   background-attachment: fixed;
+
 }
 </style>
 
@@ -24,7 +50,7 @@ function myExampleFunction(){
 
 </script>
 
-Version 0.3.7
+Version 0.5.13
 
 <h2 align=center>T1A09-functions-by-Abhay.html</h2>
 
@@ -50,3 +76,23 @@ function myGrabNumber(){
 }">
 
 <div id="myDiv01">...</div>
+
+<br><br>
+<button>Change content of all p elements</button>
+<p>jhfchdsbvkhbdkfdvb</p>
+<p>blah blah blah</p>
+
+
+<br><br>
+
+<button2>Start Animation</button2>
+
+
+
+<div style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+
+
+
+
+
