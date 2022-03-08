@@ -3,25 +3,34 @@
 T3A09-Functions-by-Abhay
 </title>
 <head>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+<script> 
 $(document).ready(function(){
-  $("button").click(function(){
-    $("p").html("Yes, <b>it actually worked!</b>");
+  $("#flip").click(function(){
+    $("#panel").slideDown(5000);
   });
-});
-
-
-$(document).ready(function(){
-  $("button2").click(function(){
-    var div = $("div");
-    div.animate({height: '300px', opacity: '0.4'}, "slow");
-    div.animate({width: '300px', opacity: '0.8'}, "slow");
-    div.animate({height: '100px', opacity: '0.4'}, "slow");
-    div.animate({width: '100px', opacity: '0.8'}, "slow");
+  $("#stop").click(function(){
+    $("#panel").stop();
   });
 });
 </script>
+<style> 
+#panel, #flip {
+  padding: 5px;
+  font-size: 18px;
+  text-align: center;
+  background-color: #555;
+  color: white;
+  border: solid 1px #666;
+  border-radius: 3px;
+}
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+</style>
 
 
 </head>
@@ -36,6 +45,29 @@ $(document).ready(function(){
   background-attachment: fixed;
 
 }
+
+.button {
+  background-color: #555555;;
+  border: dotted;
+  color: white;
+     text-shadow: 2px 2px gray;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+transition: 0.25s linear;
+}
+
+.button:hover{
+    background-color: #fff;
+    border: 1px solid #1E88E5;
+    color: #1E88E5;
+font-size: 18px;
+text-shadow:none;
+  }
 </style>
 
 <script>
@@ -50,7 +82,7 @@ function myExampleFunction(){
 
 </script>
 
-Version 0.5.13
+Version 0.7.16
 
 <h2 align=center>T1A09-functions-by-Abhay.html</h2>
 
@@ -69,29 +101,77 @@ function myGrabNumber(){
 <h4> Example working code</h4>
 
 
-<input type=text id="myText01" value="3"><br>
+<input type=text id="myText01" value="3"><br><br>
 
-<input type=button value="Function Example" onClick="{
+<input class="button" type=button value="Function Example" onClick="{
    document.getElementById('myDiv01').innerHTML =  myExampleFunction()
 }">
 
 <div id="myDiv01">...</div>
 
-<br><br>
-<button>Change content of all p elements</button>
-<p>jhfchdsbvkhbdkfdvb</p>
-<p>blah blah blah</p>
 
 
 <br><br>
 
-<button2>Start Animation</button2>
+<p>This example calls a function to convert from Fahrenheit to Celsius:</p>
+<p id="mo"></p>
+
+<script>
+function toCelsius(f) {
+  return (5/9) * (f-32);
+}
+document.getElementById("mo").innerHTML = toCelsius(77);
+</script>
+
+
+<br><br>
+
+<button class="button" id="stop">Stop sliding</button>   <button class="button" onClick="window.location.reload();">Reset</button><br><br>
+
+
+<div id="flip">Click to slide down panel</div>
+<div id="panel">Yes, it actually worked!!!!!</div>
+
+<br><br><br><br><br><br>
 
 
 
-<div style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
 
 
+
+
+
+
+<input class="button" id="myButton129" type="button" value="Make and use a function" onclick="{
+
+function myFun(myVar){
+  document.getElementById('myDiv129').innerHTML = 'The function made this line. ' + myVar + ' was passed to the function <br>'                                                                     
+}                                                                     
+                                                                      
+
+myFun('684782')      // This activates the function                                                                
+                                                                      
+}"><br><br>
+
+<div id='myDiv129'>...</div><br><br><br>
+
+
+
+
+
+
+<p>This example calls a function which performs a calculation and returns the result:</p>
+
+<p id="sehy"></p>
+
+<script>
+var x = myFunction(4, 3);
+document.getElementById("sehy").innerHTML = x;
+
+function myFunction(a, b) {
+  return a * b;
+}
+</script>
 
 
 
