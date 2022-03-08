@@ -1,1 +1,115 @@
 
+<html style="color:white;font-size:x-large;text-shadow: 3px 3px black"><br>
+ <title>
+T3A11-Arrays-by-Abhay
+</title>
+
+<style>
+
+
+.mycode{
+	display: block; 
+	padding: 3px 3px 2px; 
+	font-size: 14px; 
+	line-height: 20px;
+	width: 100%;
+	background-color: #333;
+	font-family: arial;
+	color: #f7f7f7;
+	font-weight: bold;
+}
+
+
+
+
+  body  {
+  background-image: url("https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Arays.jpg?raw=true");
+  background-repeat: repeat;
+  background-attachment: fixed;
+background-size:fit;
+background-position:center right;
+
+}
+
+ .button {
+  background-color: gray;;
+  border: 2px solid #ffffff;
+  color: white;
+     text-shadow: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;  
+  font-size: 18px;
+  cursor: grab;
+transition: 0.25s linear;
+}
+
+.button:hover{
+    background-color: #5e99a1;
+    border: 2px solid #64739B;
+    color: white;
+font-size: 18px;
+text-shadow:none;
+  }
+
+</style>
+
+
+Version 0.5.7
+
+<h2 align=center>T1A11-Arrays-by-Abhay.html</h2>
+
+<a href="https://www.w3schools.com/js/js_arrays.asp">Good reference to Javascript Arrays</a><br>
+
+Arrays are stored numbered variables
+
+<h4> Example Array code:</h4>
+<pre class="mycode">
+myArray = newArray()
+myArray{0} = 'Fred'
+myArray{1} = 'Mary'
+
+</pre>
+
+<br><br>
+
+Store these numbers in an array <input type="text" id="myTextArray" value="3, 7, 9" size="10">        
+    <br><br>
+<input id="myButton127" class="button" type="button" value="Store and show array" onclick="{
+                                                              
+      myArray = []
+      document.getElementById('myDiv127').innerHTML = '' 
+                                                              
+      myArray = document.getElementById('myTextArray').value.split(',')    
+                                                              
+      for (myIndex in myArray){                                                                                                                  
+         document.getElementById('myDiv127').innerHTML +=     myIndex + ' stores : ' + myArray[myIndex] + '<br>'
+      }                                                        
+}"><br><br>
+
+<div id='myDiv127'>...</div><br>
+
+
+
+
+<p id="ty"></p>
+
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("ty").innerHTML = fruits.join(" * ");
+</script>
+
+<p>The join() method joins array elements into a string.</p>
+<p>It this example we have used " * " as a separator between the elements:</p>
+
+
+<pre class="mycode">
+
+&lt;script&gt;
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("ty").innerHTML = fruits.join(" * ");
+&lt;/script&gt;
+
+</pre>
