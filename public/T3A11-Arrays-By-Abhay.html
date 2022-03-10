@@ -57,7 +57,7 @@ text-shadow:none;
 </style>
 
 
-Version 0.5.7
+Version 0.5.13
 
 <h2 align=center>T1A11-Arrays-by-Abhay.html</h2>
 
@@ -113,3 +113,51 @@ document.getElementById("ty").innerHTML = fruits.join(" * ");
 &lt;/script&gt;
 
 </pre>
+
+
+<br>
+<p id="qq"></p>
+
+<script>
+const cars = ["Audi", "Mercedes", "BMW"];
+document.getElementById("qq").innerHTML = cars;
+</script>
+
+cars stores [Audi,Mercedes,BMW]
+
+
+
+<pre class="mycode">
+
+
+&lt;p id="qq">&lt;/p>
+
+&lt;script>
+const cars = ["Audi", "Mercedes", "BMW"];
+document.getElementById("qq").innerHTML = cars;
+<&lt;/script>
+
+cars stores [Audi,Mercedes,BMW]
+
+</pre>
+
+
+<br><br>
+
+
+
+Store these numbers in an array <input type="text" id="myTxtArray" value="3, 7, 9, 5, 5, 7, 8" size="10">        
+    <br><br>
+<input id="myButton127" class="button" type="button" value="Store and show array" onclick="{
+                                                              
+      myArray = []
+      document.getElementById('myDiv627').innerHTML = '' 
+                                                              
+      myArray = document.getElementById('myTxtArray').value.split(',')    
+                                                              
+      for (myIndex in myArray){                                                                                                                  
+         document.getElementById('myDiv627').innerHTML +=     myIndex + ' stores : ' + myArray[myIndex] + '<br>'
+      }                                                        
+}"><br><br>
+
+<div id='myDiv627'></div><br>
