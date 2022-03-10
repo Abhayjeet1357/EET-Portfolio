@@ -15,7 +15,25 @@ $(document).ready(function(){
   });
 });
 </script>
+
+<script src="https://randojs.com/1.0.0.js"></script>
+        <script>
+            function showRandomNumber(){
+                document.getElementById("myNumber").innerHTML = rando(5, 1000);
+            }
+        </script>
+
 <style> 
+
+#myNumber{
+                font-size:100px;
+                text-align:center;
+                margin:50px auto;
+                font-family:Arial, sans-serif;
+            }
+
+
+
 #panel, #flip {
   padding: 5px;
   font-size: 18px;
@@ -82,7 +100,7 @@ function myExampleFunction(){
 
 </script>
 
-Version 0.7.16
+Version 1.7.24
 
 <h2 align=center>T1A09-functions-by-Abhay.html</h2>
 
@@ -143,12 +161,10 @@ document.getElementById("mo").innerHTML = toCelsius(77);
 
 
 <input class="button" id="myButton129" type="button" value="Make and use a function" onclick="{
-
 function myFun(myVar){
   document.getElementById('myDiv129').innerHTML = 'The function made this line. ' + myVar + ' was passed to the function <br>'                                                                     
 }                                                                     
                                                                       
-
 myFun('684782')      // This activates the function                                                                
                                                                       
 }"><br><br>
@@ -174,5 +190,6 @@ function myFunction(a, b) {
 </script>
 
 
-
-
+<p style="text-shadow:1px 1px black; font-size:xx-large" align=center> This function generates a random number (Refresh page for a new random number.)</p>
+<body onload="showRandomNumber();">
+        <div id="myNumber"></div>
