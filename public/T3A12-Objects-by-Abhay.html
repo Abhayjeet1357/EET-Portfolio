@@ -1,4 +1,31 @@
-Version 0.0.3
+<html style="color:white;font-size:x-large;text-shadow: 1px 1px gray"><br>
+ <title>
+T3A12-Objects-by-Abhay
+</title>
+<style>
+
+ .button {
+  background-color: 	#add8e6;
+  border: none;
+  color: white;
+     text-shadow: 2px 2px #000000;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+ body  {
+  background-image: url("https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/c469fe0e14f5cdc10531efc41b91d32e.jpg?raw=true");
+  background-color: #ccccc;
+}
+</style>
+
+
+Version 0.3.13
 
 <h2 align=center>T3A12-Objects-by-Abhay.html</h2>
 <a href="https://www.w3schools.com/js/js_ex_dom.asp">Good reference to Javascript Objects</a><br>
@@ -34,4 +61,30 @@ Nothing: <input type=text id="myText01" value= "Useless at the moment"><br>
 <div id="myDiv01">...</div<
   
   <br>
-                                                               
+
+
+
+<p><a id="myAnchor" href="https://virtualvacation.us/driver">Calm Website</a></p>
+
+<p>Click the button to display the value of the href attribute of the link above.</p>
+
+<button class="button" onclick="myFunction()">Try it</button>
+
+<p id="dedmo"></p>
+
+<script>
+function myFunction() {
+  var r = document.getElementById("myAnchor").href;
+  document.getElementById("dedmo").innerHTML = r;
+}
+</script>
+
+
+<br><br>
+
+
+
+<img id="myImg" src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/compman_lowres.gif?raw=true" width="107" height="98">
+<br><br>
+<button onclick="document.getElementById('myImg').src='https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/compman.gif?raw=true'">On</button>
+<button onclick="document.getElementById('myImg').src='https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/compman_lowres.gif?raw=true'">Off</button>
