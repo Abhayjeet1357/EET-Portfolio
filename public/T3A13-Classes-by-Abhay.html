@@ -1,7 +1,81 @@
-Version 0.0.1
-<h2 align=center>T3A13-Classes-by-Abhay.html</h2>
+<html style="color:white;text-shadow:1px 1px #926D80; font-size:x-large; font-style:italic;"> 
+<title>
+      T1A13-Classes-by-Abhay
+    </title>
+    <style>
+body{ background-color:#6D927F;
+}
 
-<a href="">Find a good reference to Javascript Classes</a><br>
+.mycode{
+	display: block; 
+	padding: 3px 3px 2px; 
+	font-size: 20px; 
+	line-height: 20px;
+	width: 100%;
+	background-color: gray;
+	font-family: arial;
+	color: white;
+	font-weight: bold;
+}
+
+ .button {
+  background-color: gray;;
+  border: 2px solid #ffffff;
+  color: white;
+     text-shadow: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;  
+  font-size: 18px;
+  cursor: crosshair;
+transition: 0.25s linear;
+}
+
+.button:hover{
+    background-color: #5e99a1;
+    border: 2px solid #64739B;
+    color: white;
+font-size: 18px;
+text-shadow:none;
+  }
+
+ .button2 {
+  background-color: #71c091;
+  border: dotted #52adab;
+  color: white;
+     text-shadow: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: grab;
+transition: 0.25s linear;
+}
+
+.button2:hover{
+    background-color: #fff;
+    border: 1px solid #1E88E5;
+    color: #1E88E5;
+font-size: 18px;
+text-shadow:none;
+  }
+
+</style>
+
+
+
+
+
+Version 0.7.13
+
+<h2 align=center>T1A13-Classes-by-Abhay.html</h2>
+
+
+<a href="https://www.w3schools.com/html/html_classes.asp">Find a good reference to Javascript Classes</a><br>
 Classes are both Objects that store variables (Called Properties) and Functions
 that work on the variables (called Methods)
 
@@ -21,8 +95,8 @@ that work on the variables (called Methods)
 </pre>
 
 <h4> Example working Classes code</h4>
-Nothing: <input type=text id="myText01" value="Useless at the moment"><br>
-<input type=button value="Example Class Set and Show Class Animal" onClick="{
+Nothing: <input type=text id="myText01" class="button" value=" nfghfh"><br><br>
+<input type=button class="button2" value="Example Class Set and Show Class Animal" onClick="{
  class myAnimal {
     constructor(passName, passAge) {
        this.myName = passName;
@@ -35,5 +109,59 @@ Nothing: <input type=text id="myText01" value="Useless at the moment"><br>
    myDog = new myAnimal('Snickers', 5)
    myDog.myShow()  
 }">
-
+<br><br>
 <div id="myDiv01">...</div>
+
+<br><br>
+
+Click the button to hide all the elements with the class name "ghdj".<br><br>
+
+<button class="button2" onclick="myFunction3()">Hide elements</button>
+<br><br>
+<button class="button2" onClick="window.location.reload();">Refresh</button>
+
+
+What's my favourite color?
+<h2 style="color:yellow;text-shadow:2px 2px blue;font-style:italic;font-size:xx-large;" class="ghdj">Blue</h2>
+
+
+What's my favourite sport?
+<h2 style="color:yellow;text-shadow:2px 2px blue;font-style:italic;font-size:xx-large;" class="ghdj">Volleyball</h2>
+
+
+What's my favourite video game?
+<h2 style="color:yellow;text-shadow:2px 2px blue;font-style:italic;font-size:xx-large;" class="ghdj">GTA</h2>
+
+<script>
+function myFunction3() {
+  var x = document.getElementsByClassName("ghdj");
+  for (var i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+}
+</script>
+
+<pre class="mycode">
+
+
+What's my favourite color?
+&lt;h2 style="color:yellow;text-shadow:2px 2px blue;font-style:italic;font-size:xx-large;" class="ghdj"&gt;Blue&lt;/h2&gt;
+
+
+What's my favourite sport?
+&lt;h2 style="color:yellow;text-shadow:2px 2px blue;font-style:italic;font-size:xx-large;" class="ghdj"&gt;Volleyball&lt;/h2&gt;
+
+
+What's my favourite video game?
+&lt;h2 style="color:yellow;text-shadow:2px 2px blue;font-style:italic;font-size:xx-large;" class="ghdj"&gt;GTA&lt;/h2&gt;
+
+&lt;script&gt;
+function myFunction3() {
+  var x = document.getElementsByClassName("ghdj");
+  for (var i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+}
+&lt;/script&gt;
+
+</pre>
