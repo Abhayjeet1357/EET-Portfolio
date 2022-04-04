@@ -1,8 +1,68 @@
-<h1 align=center>t2a16-Spy-Abhay.html</h1>
+<html style="color:white;text-shadow:1px 1px gray; font-size:x-large">      
+  <script> let mySound2= new Audio('https://sd75-my.sharepoint.com/personal/2293216_learn75_ca/Documents/g10-Sid-Abhay-web-design-marking/public/Final-Project-Abhay/Media-Abhay/1.m4a') </script>
+<title>
+      T3A016-Spy-by-Abhay
+    </title>
+    <style>
+body{ background-color:black;
+}
+ .button {
+  background-color: #555555;;
+  border: dotted;
+  color: white;
+     text-shadow: 2px 2px gray;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+transition: 0.25s linear;
+}
+
+.button:hover{
+    background-color: #fff;
+    border: 1px solid #1E88E5;
+    color: #1E88E5;
+font-size: 18px;
+text-shadow:none;
+  }
+
+
+ .button2 {
+  background-color: #bf2f2f;;
+  color: #2FBEBF;
+  border: solid;
+
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+transition: 0.25s linear;
+}
+
+.button2:hover{
+    background-color: #fff;
+    border: solid;
+    color: #1E88E5;
+font-size: 18px;
+text-shadow:none;
+  }
+
+
+.
+</style>
+
+
+
+<h1 align=center>T2A16-Spy-Abhay.html</h1>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
 
 
-<input type=button value="encrypt" onclick="{
+<input type=button class="button2" value="encrypt" onclick="{
    let myTemp = ''
    myString = document.getElementById('myArea01').value.toLowerCase().split('')
    for (let myLoop=0;   myLoop < myString.length; myLoop++){
@@ -18,7 +78,7 @@
 
 <textarea id="myArea02" rows=4 cols=70></textarea><br> 
 
-<input type=button value="decrypt" onclick="{
+<input type=button class="button2" value="decrypt" onclick="{
 let myTemp = ''
    myString = document.getElementById('myArea01').value.toLowerCase().split('')
    for (let myLoop=0;   myLoop < myString.length; myLoop++){
@@ -32,3 +92,93 @@ let myTemp = ''
 
 
 <textarea id="myArea03" rows=4 cols=70></textarea><br>
+
+
+
+<br><br><br>
+
+
+
+
+<textarea id="myArea0A" rows=4 cols=70>This text is confidential, please do not share and keep encrypted until needed and do not share.</textarea><br> 
+
+
+<input type=button class="button2" value="encrypt" onclick="{
+   let myTemp = ''
+   myString = document.getElementById('myArea0A').value.toLowerCase().split('')
+   for (let myLoop=0;   myLoop < myString.length; myLoop++){
+      myTemp = myString[myLoop]
+if (myString[myLoop] == 'a') {myTemp  = 'ta1]'} 
+if (myString[myLoop] == 'b') {myTemp  = 'ds2['} 
+/*if (myString[myLoop] == 'c') {myTemp  = 'gd7\'} 
+if (myString[myLoop] == 'd') {myTemp  = 'tf9@'} 
+if (myString[myLoop] == 'e') {myTemp  = 'tn7&'} 
+if (myString[myLoop] == 'f') {myTemp  = 'gm5&'} 
+if (myString[myLoop] == 'g') {myTemp  = 'wj7!'} 
+if (myString[myLoop] == 'h') {myTemp  = 'tt9$'} 
+if (myString[myLoop] == 'i') {myTemp  = 'vg7^'} 
+if (myString[myLoop] == 'j') {myTemp  = 'mj5)'} 
+if (myString[myLoop] == 'k') {myTemp  = 'ok7!'} 
+if (myString[myLoop] == 'l') {myTemp  = 'hd7%'} 
+if (myString[myLoop] == 'm') {myTemp  = 'ae4('} 
+if (myString[myLoop] == 'n') {myTemp  = 'qh2&'} 
+if (myString[myLoop] == 'o') {myTemp  = 'fi4*'} 
+if (myString[myLoop] == 'p') {myTemp  = 'll4$'} 
+if (myString[myLoop] == 'q') {myTemp  = 'jd5^'} 
+if (myString[myLoop] == 'r') {myTemp  = 'gh6#'} 
+if (myString[myLoop] == 's') {myTemp  = 'eh7@'} 
+if (myString[myLoop] == 't') {myTemp  = 'tk8%'} 
+if (myString[myLoop] == 'u') {myTemp  = 'ui6@'} 
+if (myString[myLoop] == 'v') {myTemp  = 'oj4^'} 
+if (myString[myLoop] == 'w') {myTemp  = 'yl2)'} 
+if (myString[myLoop] == 'x') {myTemp  = 'it3*'} 
+if (myString[myLoop] == 'y') {myTemp  = 'ie6('} 
+if (myString[myLoop] == 'z') {myTemp  = 'ja6+'}*/ 
+      myString[myLoop] = myTemp
+   }
+   document.getElementById('myArea0B').value = myString.join('')
+}"><br><br>
+
+
+
+<textarea id="myArea0B" rows=4 cols=70></textarea><br> 
+
+<input type=button class="button2" value="decrypt" onclick="{
+let myTemp = ''
+   myString = document.getElementById('myArea0A').value.toLowerCase().split('')
+   for (let myLoop=0;   myLoop < myString.length; myLoop++){
+      myTemp = myString[myLoop]
+if (myString[myLoop] == 'ta1]') {myTemp  = 'a'} 
+if (myString[myLoop] == 'ds2[') {myTemp  = 'b} 
+ /*if (myString[myLoop] == 'gd7\') {myTemp  = 'c'}
+ if (myString[myLoop] == 'tf9@') {myTemp  = 'd'}
+ if (myString[myLoop] == 'tn7&') {myTemp  = 'e'}
+ if (myString[myLoop] == 'gm5&') {myTemp  = 'f'}
+ if (myString[myLoop] == 'wj7!') {myTemp  = 'g'}
+ if (myString[myLoop] == 'tt9$') {myTemp  = 'h'}
+ if (myString[myLoop] == 'vg7^') {myTemp  = 'i'}
+ if (myString[myLoop] == 'mj5)') {myTemp  = 'j'}
+ if (myString[myLoop] == 'ok7!') {myTemp  = 'k'}
+ if (myString[myLoop] == 'hd7%') {myTemp  = 'l'}
+ if (myString[myLoop] == 'ae4(') {myTemp  = 'm'}
+ if (myString[myLoop] == 'qh2&') {myTemp  = 'n'}
+ if (myString[myLoop] == 'fi4*') {myTemp  = 'o'}
+ if (myString[myLoop] == 'll4$') {myTemp  = 'p'}
+ if (myString[myLoop] == 'jd5^') {myTemp  = 'q'}
+ if (myString[myLoop] == 'gh6#') {myTemp  = 'r'}
+ if (myString[myLoop] == 'eh7@') {myTemp  = 's'}
+ if (myString[myLoop] == 'tk8%') {myTemp  = 't'}
+ if (myString[myLoop] == 'ui6@') {myTemp  = 'u'}
+ if (myString[myLoop] == 'oj4^') {myTemp  = 'v'}
+ if (myString[myLoop] == 'yl2)') {myTemp  = 'w'}
+ if (myString[myLoop] == 'it3*') {myTemp  = 'x'}
+ if (myString[myLoop] == 'ie6(') {myTemp  = 'y'}
+ if (myString[myLoop] == 'ja6+') {myTemp  = 'z'}*/
+
+      myString[myLoop] = myTemp
+   }
+   document.getElementById('myArea0C').value = myString.join('')
+}"><br><br>
+
+
+<textarea id="myArea0C" rows=4 cols=70></textarea><br>
