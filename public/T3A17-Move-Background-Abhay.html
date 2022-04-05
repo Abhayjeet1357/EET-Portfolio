@@ -1,18 +1,79 @@
-<body id="myBody" style="background-repeat:repeat; background-size: 100%" background="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Loopsbg1.jpg?raw=true">
+<html style="color:white;text-shadow:1px 1px #926D80; font-size:x-large; font-style:italic;text-shadow:1px 1px red;"> 
+<title>
+      T3A17-Move-Background-by-Abhay
+    </title>
 
+<body id="myBody" style="background-repeat:repeat; background-size: 100%" background="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Loopsbg1.jpg?raw=true">
+<style>
+
+.button {
+  background-color: 	#add8e6;
+  border: none;
+  color: white;
+     text-shadow: 2px 2px #000000;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover{
+    background-color: #5e99a1;
+    border: 2px solid #64739B;
+    color: white;
+font-size: 18px;
+text-shadow:none;
+cursor:crosshair;
+  }
+img{
+    border-radius:50%;
+    border: 5px solid white;
+    width: 900px;
+    cursor: pointer;
+    padding: 10px;
+   border:1px solid #fff;
+  margin-right: 20px;
+}
+
+img:hover{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+ -webkit-box-shadow: 0px 0px 30px 0px rgba(124, 252, 0);
+-moz-box-shadow:    0px 0px 30px 0px rgba(124, 252, 0);
+box-shadow:         0px 0px 30px 0px rgba(124, 252, 0);
+}
+img:last-of-type:hover{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+ -webkit-box-shadow: 0px 0px 30px 0px rgba(232, 0, 0, 0.67);
+-moz-box-shadow:    0px 0px 30px 0px rgba(124, 252, 0);
+box-shadow:         0px 0px 30px 0px rgba(124, 252, 0);
+}
+
+
+</style>
 <script>
    let myGlobalX = 0
    let myClock
 </script>
 
-<input id="myButton01" type=button value="background move left" onclick="{
+
+<p style="color:cyan;font-size:xxx-large;text-decoration:underline;font-weight:heavy" align=center>T3A17-Move-Background-by-Abhay.html </p>
+
+
+
+<input id="myButton01" class="button" type=button value="background move left" onclick="{
   myTemp = '100px 0px'
   myGlobalX -= 5
   myTemp =  myGlobalX + 'px 0px'
   document.getElementById('myBody').style.backgroundPosition =myTemp
 }">
 
-<input type=button value="Auto Background Left" onclick="{
+<input type=button class="button" value="Auto Background Left" onclick="{
   clearInterval(myClock)
   myClock = setInterval(function(){
      document.getElementById('myButton01').click() 
@@ -20,8 +81,8 @@
     
 }">
 
-<input type=button value="Image Right" onclick="{
+<input type=button class="button" value="Image Right" onclick="{
   document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) + 10 + 'px'
 }"><br><br>
 
-<img id="myImage01" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="myImage01.jpg">
+<img id="myImage01" style="position:relative; width:700px; height:500px; top:0px; left:0px;" src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Sam.gif?raw=true">
