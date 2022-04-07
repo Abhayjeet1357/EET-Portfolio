@@ -72,7 +72,7 @@ box-shadow:         0px 0px 30px 0px rgba(124, 252, 0);
   myTemp =  myGlobalX + 'px 0px'
   document.getElementById('myBody').style.backgroundPosition =myTemp
 }">
-
+<br><br>
 <input type=button class="button" value="Auto Background Left" onclick="{
   clearInterval(myClock)
   myClock = setInterval(function(){
@@ -80,9 +80,36 @@ box-shadow:         0px 0px 30px 0px rgba(124, 252, 0);
   }, 100)
     
 }">
+<br><br>
+<input id="myButton02" class="button" type=button value="background move right" onclick="{
+  myTemp = '100px 0px'
+  myGlobalX -= -5
+  myTemp =  myGlobalX + 'px 0px'
+  document.getElementById('myBody').style.backgroundPosition =myTemp
+}">
+
+<br> <br> 
+<input type=button class="button" value="Auto Background right " onclick="{
+  clearInterval(myClock)
+  myClock = setInterval(function(){
+     document.getElementById('myButton02').click() 
+  }, 100)
+    
+}">
+<br> <br>
 
 <input type=button class="button" value="Image Right" onclick="{
   document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) + 10 + 'px'
 }"><br><br>
 
-<img id="myImage01" style="position:relative; width:700px; height:500px; top:0px; left:0px;" src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Sam.gif?raw=true">
+
+<input type=button class="button" value="Image down" onclick="{
+  document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) + 10 + 'px'
+}"><br><br>
+
+
+
+<img id="myImage01" style="position:relative; width:700px; height:500px; top:0px; left: 300px; right: 300px;" src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Sam.gif?raw=true">
+
+</body>
+</html>
