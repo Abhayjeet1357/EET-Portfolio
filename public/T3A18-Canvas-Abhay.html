@@ -70,7 +70,6 @@ You use loops and variables to make fast fancy drawings <br><br>
    myContext.moveTo(300,100);
    myContext.quadraticCurveTo(100,220,240,110);
    myContext.stroke();
-
 }">
 
 <br><br>
@@ -80,10 +79,8 @@ You use loops and variables to make fast fancy drawings <br><br>
    myGradient.addColorStop(0, 'red');
    myGradient.addColorStop(0.5, 'blue');
    myGradient.addColorStop(1, 'yellow');
-
    myContext.fillStyle = myGradient;
    myContext.fillRect(100, 300, 200, 400);
-
    // reset fillstyle
    myContext.fillStyle = 'black';
 }">
@@ -91,6 +88,37 @@ You use loops and variables to make fast fancy drawings <br><br>
 <input type=button class="button" value="clearRect(20, 20, 50, 50)" onclick="{
    myContext.clearRect(20, 20, 50, 50);
 }">
+
+<input type=button class="button" value="Make a red and blue rectangle" onclick="{
+    let myGradient = myContext.createLinearGradient(100, 300, 300, 400);
+    myGradient.addColorStop(0.5, 'red');
+    myGradient.addColorStop(1, 'blue');
+    myContext.fillStyle = myGradient;
+    myContext.fillRect(100, 300, 200, 400);
+    // reset fillstyle
+    myContext.fillStyle = 'white';
+ }">
+
+<input type=button class="button" value="make a white circle" onclick="{
+    myContext.beginPath();
+    
+    myContext.lineWidth = 25;
+    myContext.strokeStyle = 'white';
+    myContext.arc(95, 50, 70, 0, 10 * Math.PI);
+    myContext.stroke();
+   
+ }">
+
+
+<input type=button class="button" value="make a white yellow with a line" onclick="{
+    myContext.beginPath();
+    myContext.moveTo(300,100);
+    myContext.lineWidth = 25;
+    myContext.strokeStyle = 'yellow';
+    myContext.arc(95, 50, 70, 0, 10 * Math.PI);
+    myContext.stroke();
+   
+ }">
 
 
 
