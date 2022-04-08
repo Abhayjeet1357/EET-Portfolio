@@ -1,108 +1,229 @@
-<html style="color:white;text-shadow:1px 1px gray; font-size:x-large">      
-  <script> let mySound2= new Audio('https://sd75-my.sharepoint.com/personal/2293216_learn75_ca/Documents/g10-Sid-Abhay-web-design-marking/public/Final-Project-Abhay/Media-Abhay/1.m4a') </script>
-<title>
-      T3A016-Spy-by-Abhay
-    </title>
-    <style>
-body{ background-color:black;
-}
- .button {
-  background-color: #555555;;
-  border: dotted;
-  color: white;
-     text-shadow: 2px 2px gray;
+<!DOCTYPE html>
 
+<html style="color:white;text-shadow:1px 1px #926D80; font-size:x-large; font-weight:bold;text-shadow:1px 1px red;"> 
+<title>
+      T3A17-Move-Background-by-Abhay
+    </title>
+
+<body>
+
+</body><style>
+
+.button {
+  background-color: 	#add8e6;
+  border: none;
+  color: white;
+     text-shadow: 2px 2px black;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
-transition: 0.25s linear;
+  font-weight:none;
+  font-style:italic;
 }
 
 .button:hover{
-    background-color: #fff;
-    border: 1px solid #1E88E5;
-    color: #1E88E5;
+    background-color: #5e99a1;
+    border: 2px solid #64739B;
+    color: white;
 font-size: 18px;
 text-shadow:none;
+cursor:crosshair;
   }
 
+    textarea {
+      width: 100vw;
+      height: auto;
+      color: whitesmoke;
+      background-color: rgb(75, 71, 71);
+     
+    }
 
- .button2 {
-  background-color: #bf2f2f;;
-  color: #2FBEBF;
-  border: solid;
+    html {
+      color: white;
+      background-color: rgb(216, 99, 99);
+      text-shadow: 2px 2px gray;
+    }
 
-  padding: 30px 50px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 18px;
-  cursor: pointer;
-transition: 0.25s linear;
-}
+    td {
+      width: 100vw;
+    }
 
-.button2:hover{
-    background-color: #fff;
-    border: solid;
-    color: #1E88E5;
-font-size: 18px;
-text-shadow:none;
-  }
+   
 
-textarea{
-color:white;
-background:#5b5957;
-}
+    input[type="radio"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
 
-</style>
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: 10px;
+      border-radius: 25%;
 
-<body>
+      color: cyan;
+      background-color: white;
+      outline-offset: 2.5px;
+      outline: 3px groove white;
+    }
 
+    input[type="radio"]:checked {
+      background-color: cyan;
+    }
+  </style>
 
+  <script>
+    document.toggle = 0;
 
-<h1 align='center'>T2A16-Spy-Abhay.html</h1>
+    function sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
 
-<br><br>
+    function myStartUp() {
+      myLow();
+      document.getElementById("L").checked = true;
+      document.getElementById("myArea02").value = "";
+      document.getElementById("myArea03").value = "";
+    }
 
-<br><br>
-<textarea id="myArea01" rows='20' cols='150'>Hello how are you</textarea><br> 
+    document.myEncryptCounter;
+    document.myEncrypt;
 
+    
 
-<input type="button" class="button2" value="encrypt" onclick="{
-   let myTemp = ''
-   let myString = document.getElementById('myArea01').value.toLowerCase().split('');
-   for (let myLoop=0;   myLoop < myString.length; myLoop++){
-      myTemp = myString[myLoop];
-      if (myString[myLoop] == 'e') {myTemp  = 'f'} 
-      if (myString[myLoop] == 'h') {myTemp  = 'i'} 
-      myString[myLoop] = myTemp;
-   }
-   document.getElementById('myArea02').value = myString.join('');
-}"><br><br>
+    function myLow() {
+      myEncrypt = document.getElementById("myArea01").value;
+      myEncryptCounter = 0;
+      for (var i = 0; i < 1; i++) {
+        myEncrypt = btoa(myEncrypt);
+        myEncryptCounter++;
+        console.log("L");
+      }
+    }
 
+    function myMedium() {
+      myEncrypt = document.getElementById("myArea01").value;
+      myEncryptCounter = 0;
+      for (var i = 0; i < 5; i++) {
+        myEncrypt = btoa(myEncrypt);
+        myEncryptCounter++;
+        console.log("M");
+      }
+    }
 
+    
 
-<textarea id="myArea02" rows='20 'cols='150'></textarea><br> 
+    function ultraTimeAlert() {
+      if (
+        confirm("This takes some time to Encrypt do you wish to continue") ==
+        true
+      ) {
+        myArea02Clear();
+        return;
+      } else {
+        document.getElementById("U").checked = false;
+        document.getElementById("H").checked = true;
+        myArea02Clear();
+      }
+    }
 
-<input type="button" class="button2" value="decrypt" onclick="{
-let myTemp = ''
-   myString = document.getElementById('myArea01').value.toLowerCase().split('')
-   for (let myLoop=0;   myLoop < myString.length; myLoop++){
-      myTemp = myString[myLoop]
-      if (myString[myLoop] == 'f') {myTemp  = 'e'} 
-      if (myString[myLoop] == 'i') {myTemp  = 'h'} 
-      myString[myLoop] = myTemp
-   }
-   document.getElementById('myArea03').value = myString.join('')
-}"><br><br>
+    function myArea02Clear() {
+      document.getElementById("myArea02").value = "";
+    }
 
+    function allEncryptFunc() {
+     
 
-<textarea id="myArea03" rows='20' cols='150'></textarea><br>
+      if (document.getElementById("L").checked == true) {
+        myLow();
+      }
 
+      if (document.getElementById("M").checked == true) {
+        myMedium();
+      }
 
+     
+    }
 
-</body>
-  </html>
+  </script>
+
+  <body onload="myStartUp()">
+    Version 1.32.29
+    <h1 align="center">T3A16-Spy-By-Abhay.html</h1>
+
+    <h4>Choose Leval Of Encryption</h4>
+    <table>
+      <tr align="center">
+        
+        <td>LOW<input type="radio" id="L" value="LOW" name="r1" checked /></td>
+        <td>MEDIUM<input type="radio" id="M" value="MEDIUM" name="r1" /></td>
+       
+      </tr>
+    </table>
+    <br /><br />
+
+    <script>
+     
+      document.getElementById("L").addEventListener("input", myArea02Clear);
+      document.getElementById("M").addEventListener("input", myArea02Clear);
+      document.getElementById("H").addEventListener("input", myArea02Clear);
+      document.getElementById("U").addEventListener("input", ultraTimeAlert);
+    </script>
+
+    <textarea id="myArea01" rows="1" cols="100vw" style="font-size:xx-large">Confidential information, Do Not Share!!!</textarea
+    ><br />
+
+    <input
+      class="button button1"
+      type="button"
+      value="Encrypt"
+      onclick="{
+        if (document.getElementById('myArea01').value.length == 0) {
+            document.getElementById('myArea02').value = 'Nothing To Encrypt'
+        } else {
+        allEncryptFunc();
+        document.getElementById('myArea02').value = myEncrypt;
+        document.getElementById('myArea03').value = '';
+        
+    }
+}"
+    /><br /><br />
+
+    <table>
+      <tr>
+        
+      <tr></tr>
+      <tr>
+        <td><textarea id="myArea02" rows="21vw" style="font-size:x-large" cols="100vw"></textarea></td>
+       </td>
+      </tr>
+    </table>
+    <br />
+
+    <input
+      class="button button1"
+      type="button"
+      value="Decrypt"
+      onclick="{
+        var myDecrypt = document.getElementById('myArea02').value;
+        if ((myEncryptCounter == 0) || (document.getElementById('myArea02').value.length == 0) || (document.getElementById('myArea02').value == 'Nothing To Encrypt')){
+            document.getElementById('myArea03').value = 'Nothing To Decrypt';
+        } else {
+        for(var i = 0;i < myEncryptCounter;i++){
+            myDecrypt = atob(myDecrypt);
+            document.getElementById('myArea03').value = myDecrypt;
+        }
+    }
+}"
+    /><br /><br />
+
+    <textarea id="myArea03" rows="1" cols="100vw"></textarea><br />
+
+    <script>
+      myEncrypt = document.getElementById("myArea01").value;
+    </script>
+  </body>
+</html>
