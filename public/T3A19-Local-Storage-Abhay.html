@@ -1,23 +1,75 @@
-<h2>T3A19 Local Storage by Abhay</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<body onload="{
-   myStorage = localStorage.getItem('myStoredText')
-   if(myStorage  != null){
-      document.getElementById('myText1').value = myStorage 
-    }
-}">
+    <title>Local Storage by Abhay</title>
+</head>
+<body>
 
-<body onunload="{
-   localstorage.setItem('myStoredText',document.getElementById('myText1').value)
-}">   
+    <script>
+        function clickCounter() {
+          if (typeof(Storage) !== "undefined") {
+            if (sessionStorage.clickcount) {
+              sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+            } else {
+              sessionStorage.clickcount = 1;
+            }
+            document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in this session.";
+          } else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+          }
+        }
+        </script>
 
-Text example: <input id="myText1" type=text size=70 value="" placeholder="Write here to store"><br>
+    <style>
 
-<input type="button" value="Store Text" onClick="{
-   localStorage.setItem('myStoredText', document.getElementById('myText1').value)
-   alert(document.getElementById('myText1').value + ' \nHas been stored')
-   document.getElementById('myText1').value = ''
-}">
 
-<input type="button" value="Retrieve Text" onClick="{
-   document.getElementById('myText1').value = localStorage.getItem('myStoredText')
+
+
+    </style>
+
+    <body onload="{
+        myStorage = localStorage.getItem('myStoredText')
+        if(myStorage  != null){
+           document.getElementById('myText1').value = myStorage 
+         }
+     }">
+     
+     <body onunload="{
+        localstorage.setItem('myStoredText',document.getElementById('myText1').value)
+     }">   
+     
+     Text example: <input id="myText1" type=text size=70 value="" placeholder="Write here to store"><br>
+     
+     <input type="button" value="Store Text" onClick="{
+        localStorage.setItem('myStoredText', document.getElementById('myText1').value)
+        alert(document.getElementById('myText1').value + ' \nHas been stored')
+        document.getElementById('myText1').value = ''
+     }">
+     
+     <input type="button" value="Retrieve Text" onClick="{
+        document.getElementById('myText1').value = localStorage.getItem('myStoredText')
+
+     }">
+
+     <p><button onclick="clickCounter()" type="button">Click me!</button></p>
+     <div id="result"></div>
+     <p>Click the button to see the counter increase.</p>
+     <p>Close the browser tab (or window), and try again, and the counter is reset.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+    
