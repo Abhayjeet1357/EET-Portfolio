@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="color:whiite;text-shadow: 1px 1px #926D80;font-size:x-large;font-style:italic;">
 <head>
 
     <title>Local Storage by Abhay</title>
@@ -22,8 +22,56 @@
         </script>
 
     <style>
+body {
+background-color:#6D927F;
 
+}
 
+.button {
+  background-color: gray;;
+  border: 2px solid #ffffff;
+  color: white;
+     text-shadow: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;  
+  font-size: 18px;
+  cursor: crosshair;
+transition: 0.25s linear;
+}
+
+.button:hover{
+    background-color: #5e99a1;
+    border: 2px solid #64739B;
+    color: white;
+font-size: 18px;
+text-shadow:none;
+  }
+
+ .button2 {
+  background-color: #9E8861;;
+  border: dotted #52adab;
+  color: white;
+     text-shadow: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: grab;
+transition: 0.25s linear;
+}
+
+.button2:hover{
+    background-color: #fff;
+    border: 1px solid #1E88E5;
+    color: #1E88E5;
+font-size: 18px;
+text-shadow:none;
+  }
 
 
     </style>
@@ -40,19 +88,19 @@
      }">   
      
      Text example: <input id="myText1" type=text size=70 value="" placeholder="Write here to store"><br>
-     
-     <input type="button" value="Store Text" onClick="{
+     <br>
+     <input type="button" class="button" value="Store Text" onClick="{
         localStorage.setItem('myStoredText', document.getElementById('myText1').value)
         alert(document.getElementById('myText1').value + ' \nHas been stored')
         document.getElementById('myText1').value = ''
      }">
      
-     <input type="button" value="Retrieve Text" onClick="{
+     <input type="button" class="button" value="Retrieve Text" onClick="{
         document.getElementById('myText1').value = localStorage.getItem('myStoredText')
 
      }">
 
-     <p><button onclick="clickCounter()" type="button">Click me!</button></p>
+     <p><button onclick="clickCounter()" class="button" type="button">Click me!</button></p>
      <div id="result"></div>
      <p>Click the button to see the counter increase.</p>
      <p>Close the browser tab (or window), and try again, and the counter is reset.</p>
