@@ -56,8 +56,8 @@ You use loops and variables to make fast fancy drawings <br><br>
 
 <input type=button class="button" value=".fillText('Hello World', 400, 100)" onclick="{
    myContext.font = '20px Arial';
-   myContext.fillText('Hello World', 400, 100);
-   myContext.translate(400, 100);  
+   myContext.fillText('Hello World', 700, 100);
+   myContext.translate(700, 100);  
    myContext.rotate(60 * Math.PI / 180); 
    myContext.fillText('Hello World', 10, 10);
    myContext.stroke();
@@ -90,11 +90,11 @@ You use loops and variables to make fast fancy drawings <br><br>
 }">
 
 <input type=button class="button" value="Make a red and blue rectangle" onclick="{
-    let myGradient = myContext.createLinearGradient(100, 300, 300, 400);
+    let myGradient = myContext.createLinearGradient(100, 300, 500, 400);
     myGradient.addColorStop(0.5, 'red');
     myGradient.addColorStop(1, 'blue');
     myContext.fillStyle = myGradient;
-    myContext.fillRect(100, 300, 200, 400);
+    myContext.fillRect(300, 300, 200, 400);
     // reset fillstyle
     myContext.fillStyle = 'white';
  }">
@@ -120,7 +120,16 @@ You use loops and variables to make fast fancy drawings <br><br>
    
  }">
 
-
+<input type=button class="button" value="Make random text appear" onclick="{
+   myContext.font = '30px bold italic';
+   myContext.fillText('Random Text Appeared', 700,300);
+   myContext.translate(700, 300);  
+   myContext.rotate(60 * Math.PI / 380); 
+   myContext.fillText('Hi, Im the Shadow', 10, 10);
+   myContext.stroke();
+   myContext.resetTransform();  
+   //myContext.rotate(-60 * Math.PI / 180); 
+}">
 
 
 
