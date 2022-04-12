@@ -1,29 +1,162 @@
-<h1 align=center>t2a12 Sort by Fred</h1>
+<!DOCTYPE html>
+<html lang="en" style="color:white;font-size:x-large;text-shadow: 1px 1px gray">
+<head>
+
+    <title>T3A23-Sort-by-Abhay.html</title>
+</head>
+<body>
+    
+<style>
+
+
+body  {
+  background-image: url("https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Functions.jpg?raw=true");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+
+.button {
+  background-color: #555555;;
+  border: dotted;
+  color: white;
+     text-shadow: 2px 2px gray;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+transition: 0.25s linear;
+}
+
+.button:hover{
+    background-color: #fff;
+    border: 1px solid #1E88E5;
+    color: #1E88E5;
+font-size: 18px;
+text-shadow:none;
+  }
+
+</style>
+
+
+<h2 style="font-size:xxx-large;text-decoration:underline;text-shadow: 2px 2px black;" align="center">T3A23-Sort-by-Abhay </h2>
 
 <script>
-   let myMax = 3      // 52 when working
-   let myCards = new Array(myMax)  
+    let myMax = 52      // 52 when working
+    let myCards = new Array(myMax)  
+ </script>
+
+<input type=button class="button"value="Set Random" onclick="{
+    for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
+       myCards[myLoop] = Math.floor(Math.random()*10)
+    }
+  }">
+  
+  <input type=button class="button" value="Show" onclick="{
+    let myTemp = ''
+    for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
+       myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
+    }
+     document.getElementById('myDiv01').innerHTML = myTemp
+  }">
+  
+  <input type=button class="button" value="Sort" onclick="{
+    let myTemp = 0
+    for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
+       myCards[myLoop] = 0 // you do this stuff
+    }
+  }">
+  
+  <div id="myDiv01"></div>
+
+
+  <script>
+    function sort() {
+
+        // Declaring Variables
+        var geek_list, i, run, li, stop;
+
+        // Taking content of list as input
+        geek_list = document.getElementById("GeekList");
+
+        run = true;
+
+        while (run) {
+            run = false;
+            li = geek_list.getElementsByTagName("LI");
+
+            // Loop traversing through all the list items
+            for (i = 0; i < (li.length - 1); i++) {
+                stop = false;
+                if (li[i].innerHTML.toLowerCase() >
+                    li[i + 1].innerHTML.toLowerCase()) {
+                    stop = true;
+                    break;
+                }
+            }
+
+            /* If the current item is smaller than
+            the next item then adding it after
+            it using insertBefore() method */
+            if (stop) {
+                li[i].parentNode.insertBefore(
+                        li[i + 1], li[i]);
+
+                run = true;
+            }
+        }
+    }
 </script>
 
-<input type=button value="Set Random" onclick="{
-  for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-     myCards[myLoop] = Math.floor(Math.random()*10)
-  }
-}">
 
-<input type=button value="Show" onclick="{
-  let myTemp = ''
-  for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-     myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
-  }
-   document.getElementById('myDiv01').innerHTML = myTemp
-}">
 
-<input type=button value="Sort" onclick="{
-  let myTemp = 0
-  for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-     myCards[myLoop] = 0 // you do this stuff
-  }
-}">
 
-<dir id="myDiv01"></div>
+Click on the button to sort the list alphabetically
+
+<ul style="color: crimson;" id="GeekList">
+    <li>Zebra</li>
+    <li>Banana</li>
+    <li>Candy</li>
+    <li>Apple</li>
+    <li>Dam</li>
+    <li>Horse</li>
+    <li>Elephant</li>
+    <li>Gas</li>
+    <li>Piano</li>
+</ul>
+<br>
+
+
+    <button class="button" style="color: crimson;"
+        onclick="sort()">
+        Click Here To Sort
+    </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
