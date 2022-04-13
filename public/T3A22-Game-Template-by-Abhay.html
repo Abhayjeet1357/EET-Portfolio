@@ -1,8 +1,42 @@
-<h6> Version 0.0.1 </h6>
+<!DOCTYPE html>
+<html lang="en" style="color:white;font-size:x-large;text-shadow:2px 2px gray; font-style:italic;">
+<head>
+    
+    <title>Game Template</title>
+</head>
+<body>
+ <style>
 
-<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg">
+.button2 {
+  background-color: #bf2f2f;;
+  color: #2FBEBF;
+  border: solid;
 
-<h1 align=center>t2a11 Game Template by Fred</h1>
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+transition: 0.25s linear;
+}
+
+.button2:hover{
+    background-color: #fff;
+    border: solid;
+    color: #1E88E5;
+font-size: 18px;
+text-shadow:none;
+  }
+
+ </style>   
+
+
+
+
+<body id="myBody" style="background-repeat:repeat; background-size: 100%" background="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Sam.gif?raw=true">
+
+<h1 align=center>Game Template By Abhay</h1>
 <br><br><br><br>
 
 <script>
@@ -35,7 +69,7 @@ function myCheckHit(){
    if ( myHitOther('myImg01','myImg02') ){
        alert('you lose')  
        document.getElementById('myImg01').style.left = '20px'
-       location = 't2a13-keydown.html'  // go to your next level
+       location = 'Index.html'  // go to your next level
    }
 
 
@@ -48,22 +82,41 @@ function myCheckHit(){
 
 </script>
 
-<img id="myImg01" style="position:absolute; width:100px; height:80px; top:0px; left:50px;"  src="myImage01.jpg">
-<img id="myImg02" style="position:absolute; width:100px; height:80px; top:0px; left:250px;" src="myImage02.jpg">
+<img id="myImg01" style="position:absolute; width:300px; height:200px; top: 500px;px; left:250px; right:0px;"  src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/OIP.jpg?raw=true">
+<img id="myImg02" style="position:absolute; width:300px; height:200px; top:500px; left:700px; right:0px" src="https://github.com/Abhayjeet1357/Game_Dev_22_Abhay/blob/main/public/Images/Earth.png?raw=true">
 
-<input type=button value="Auto Background Left" onclick="{
+<input type=button class="button2" value="Auto Background Left" onclick="{
   clearInterval(myClock)
   let myTemp = '100px 0px'
   myClock = setInterval(function(){
       myGlobalX -= 5
       myTemp =  myGlobalX + 'px 0px'
       document.getElementById('myBody').style.backgroundPosition = myTemp
-  }, 100)
+  }, 10)
     
 }">
 
+<input type=button class="button2" value="Auto Background right" onclick="{
+    clearInterval(myClock)
+    let myTemp = '100px 0px'
+    myClock = setInterval(function(){
+        myGlobalX -= -5
+        myTemp =  myGlobalX + 'px 0px'
+        document.getElementById('myBody').style.backgroundPosition = myTemp
+    }, 10)
+      
+  }">
 
-<input type=button value="Image Right Fast Button" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+<input type=button class="button2" value="Image Right Fast Button" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
   myCheckHit()     // checks for all collisions
-}"><br><br>
+}">
+
+<button class="button2" onClick="window.location.reload();">Refresh</button>
+
+
+
+
+
+</body>
+</html>
