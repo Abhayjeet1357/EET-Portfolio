@@ -64,12 +64,11 @@ text-shadow:none;
      document.getElementById('myDiv01').innerHTML = myTemp
   }">
   
-  <input type=button class="button" value="Sort" onclick="{
-    let myTemp = 0
-    for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-       myCards[myLoop] = 0 // you do this stuff
-    }
-  }">
+  <input type="button" class="button" value="sort" onclick="{
+    myCards.sort();
+    document.getElementById('myDiv01').innerHTML = myCards
+    
+    }"><br><br>
   
   <div id="myDiv01"></div>
 
