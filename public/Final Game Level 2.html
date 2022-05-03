@@ -15,8 +15,8 @@
  
  clearInterval(myTimer09)
  myTimer09 = setInterval(function(){
-    let my09x = Math.floor((Math.random() * -1) - 2) 
-    let my09y = Math.floor((Math.random() * 1) - 2) 
+    let my09x = Math.floor((Math.random() * 15) - 20) 
+    let my09y = Math.floor((Math.random() * 15) - 16) 
     document.getElementById('myImg09').style.left = parseInt(document.getElementById('myImg09').style.left) + my09x + 'px'
     document.getElementById('myImg09').style.top  = parseInt(document.getElementById('myImg09').style.top)  + my09y + 'px'
     myCheckHit()     // checks for all collisions
