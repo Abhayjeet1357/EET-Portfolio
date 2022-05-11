@@ -1,3 +1,4 @@
+
 <html style="color:white;font-size:xx-large;">
 <head>
    
@@ -55,19 +56,24 @@ if (myKey == 'w') {
  document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + -50
  myCheckHit()
 }
+
 if (myKey == 'ArrowRight') {
+
 document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 50
 myCheckHit()
 }
 if (myKey == 'ArrowLeft') {
+
 document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + -50
 myCheckHit()
 }
 if (myKey == 'ArrowDown') {
+
 document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 50
 myCheckHit()
 }
 if (myKey == 'ArrowUp') {
+
 document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + -50
 myCheckHit()
 }
@@ -108,7 +114,7 @@ function myCheckHit(){
    if ( myHitOther('myImg01','myImg03') ){
        alert('You win! Go to my guide now to learn the basics and then try to beat it 💪')  
        document.getElementById('myImg01').style.left = '20px'
-       location = 'http://127.0.0.1:5500/Guide%20to%20Game.html'  // go to your next level
+       location = 'https://abhayjeet1357.github.io/Game_Dev_22_Abhay/public/Final%20Game%20Guide.html'  // go to your next level
    }
    else if ( myHitOther('myImg01','myImg02') ){
     window.location.reload();
