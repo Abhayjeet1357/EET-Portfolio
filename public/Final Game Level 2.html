@@ -22,8 +22,6 @@
       myCheckHit()     // checks for all collisions
    }, 50)
  
-
-
  clearInterval(myTimer10)
  myTimer10 = setInterval(function(){
     let my10x = Math.floor((Math.random() * 1) - 3) 
@@ -72,31 +70,27 @@ if (myKey == 'ArrowRight') {
   myCheckHit()
 }
 if (myKey == 'ArrowLeft') {
-
 document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + -50
 myCheckHit()
 }
 if (myKey == 'ArrowDown') {
-
 document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 50
 myCheckHit()
 }
 if (myKey == 'ArrowUp') {
-
 document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + -50
 myCheckHit()
 }
 }">
 
 
-   
 
    
 
    
    
    <script>
-   
+
       // global variables here
       let myGlobalX = 0
       let myClock
@@ -193,6 +187,10 @@ myCheckHit()
 
 
     <style>
+
+body{
+   overflow: hidden;
+}
 
 .button2 {
   background-color: #bf2f2f;;
