@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fuel Pump Project | Abhay Sidhu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #0c0c0c;
+      color: #e5e5e5;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(to right, #08A391, #005a73);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 2px 2px #000;
+    }
+
+    .section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #42bd69;
+      border-left: 6px solid #42bd69;
+      padding-left: 10px;
+    }
+
+    .photo-block {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+
+    .photo-block img {
+      width: 300px;
+      border-radius: 10px;
+      border: 2px solid #333;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .skill-card {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      transition: transform 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+      background: #2e2e2e;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      color: #fff;
+      background: #08A391;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background: #0dc7a7;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Fuel Pump Control Panel Project</h1>
+  </header>
+
+  <section class="section">
+    <h2>📘 Project Summary</h2>
+    <p>
+      This project was developed in collaboration with Wildy Enterprises Ltd. to design and implement a PLC-based control system for fuel pump automation. The system includes level-based auto/manual control, emergency logic, and visual/audible indicators — all housed in a field-ready cabinet.
+    </p>
+    <div class="photo-block">
+      <img src="https://raw.githubusercontent.com/Abhayjeet1357/Portfolio/main/images/final_box.jpg" alt="Final Control Panel">
+      <p>
+        Working in a real warehouse environment gave me practical experience with tools, wiring, and panel layout. I was responsible for designing and testing PLC logic that controlled the fuel pump based on float switch states and safety interlocks.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>⚙️ Technical Skills Gained</h2>
+    <div class="skills">
+      <div class="skill-card">
+        <strong>PLC Programming</strong>
+        <p>Used TECO SG2 software to create logic for pump control, safety shutoff, and alarms.</p>
+      </div>
+      <div class="skill-card">
+        <strong>AutoCAD Electrical</strong>
+        <p>Created schematics and physical layout drawings for the cabinet using industry standards.</p>
+      </div>
+      <div class="skill-card">
+        <strong>Hands-On Wiring</strong>
+        <p>Installed and wired relays, terminal blocks, and control devices within the cabinet.</p>
+      </div>
+      <div class="skill-card">
+        <strong>Field Experience</strong>
+        <p>Worked on-site at Wildy's warehouse using real equipment under industrial conditions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>📸 Build Highlights</h2>
+    <div class="photo-block">
+      <img src="https://raw.githubusercontent.com/Abhayjeet1357/Portfolio/main/images/workshop_drill.jpg" alt="Drilling Base">
+      <p>Collaborating with teammates during initial panel preparation — drilling layout holes and prepping for component mounting.</p>
+    </div>
+
+    <div class="photo-block">
+      <img src="https://raw.githubusercontent.com/Abhayjeet1357/Portfolio/main/images/panel_team.jpg" alt="Team Wiring">
+      <p>Working hands-on with wiring and hardware. I handled the PLC logic while helping ensure the cabinet followed CSA wiring practices.</p>
+    </div>
+
+    <div class="photo-block">
+      <img src="https://raw.githubusercontent.com/Abhayjeet1357/Portfolio/main/images/teco_panel_topdown.jpg" alt="Internal Layout">
+      <p>Final cabinet layout showing TECO PLC, relays, contactor, buzzer, and indicator lights. Labeling and routing were done with future maintenance in mind.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Want to see the full schematics, ladder logic, and BOM?</p>
+    <a href="#" class="btn">Download Full Report (PDF)</a>
+  </footer>
+
+</body>
+</html>
