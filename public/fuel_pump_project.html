@@ -14,11 +14,6 @@
       scroll-behavior: smooth;
       background-color: #0c0c0c;
     }
-    .background {
-      background: url('https://images.unsplash.com/photo-1581093588401-5c4e1d76b08b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-      background-size: cover;
-      padding-top: 60px;
-    }
     header {
       height: 100vh;
       display: flex;
@@ -54,105 +49,71 @@
       padding-left: 10px;
     }
     .photo-block {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin: 30px 0;
+      margin-bottom: 60px;
     }
-    .photo-hover {
+    .photo-block figure {
       position: relative;
-      width: 280px;
-      height: 200px;
-      perspective: 1000px;
-    }
-    .photo-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-    }
-    .photo-hover:hover .photo-inner {
-      transform: rotateY(180deg);
-    }
-    .photo-front, .photo-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 10px;
+      margin: 40px auto;
       overflow: hidden;
+      border-radius: 12px;
+      border: 2px solid #2e2e2e;
+      width: 90%;
+      max-width: 900px;
+      height: auto;
+      aspect-ratio: 3 / 2;
     }
-    .photo-front img {
+    .photo-block:nth-child(even) figure {
+      max-width: 700px;
+      margin-left: 0;
+    }
+    .photo-block:nth-child(odd) figure {
+      max-width: 1000px;
+      margin-right: 0;
+    }
+    .photo-block img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.85;
+      display: block;
+      transition: transform 0.4s ease, opacity 0.4s ease;
     }
-    .photo-back {
-      background-color: #1a1a1a;
+    .photo-block figcaption {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
       color: #fff;
-      transform: rotateY(180deg);
+      opacity: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
+      padding: 30px;
+      font-size: 1rem;
+      line-height: 1.6;
       text-align: center;
+      transition: opacity 0.4s ease;
     }
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .skill-card {
-      background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #333;
-      transition: transform 0.3s, background 0.3s;
-    }
-    .skill-card:hover {
+    .photo-block figure:hover img {
       transform: scale(1.05);
-      background: linear-gradient(135deg, #2e2e2e, #3a3a3a);
+      opacity: 0.3;
+    }
+    .photo-block figure:hover figcaption {
+      opacity: 1;
     }
     .schematics {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      justify-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-top: 40px;
     }
     .schematics img {
-      width: 100%;
-      max-width: 500px;
+      max-width: 90%;
       border-radius: 12px;
       border: 2px solid #08A391;
       box-shadow: 0 0 18px rgba(8,163,145,0.3);
-      transition: transform 0.3s;
-    }
-    .schematics img:hover {
-      transform: scale(1.03);
-    }
-    .toggle-container {
-      margin: 30px 0;
-    }
-    .toggle-btn {
-      background-color: #08A391;
-      border: none;
-      padding: 12px 20px;
-      color: white;
-      font-size: 1em;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-    .toggle-text {
-      display: none;
-      padding: 15px;
-      border-left: 4px solid #08A391;
-      background-color: #1b1b1b;
-      border-radius: 5px;
     }
     footer {
       text-align: center;
@@ -175,6 +136,63 @@
   </style>
 </head>
 <body>
-<!-- rest of body stays unchanged -->
+  <header>
+    <h1>Fuel Pump Control Panel Project</h1>
+    <p>Designed and deployed with Wildy Enterprises Ltd. | Industrial Automation Done Right</p>
+  </header>
+
+  <section class="section">
+    <h2>📘 Project Summary</h2>
+    <p>This project was developed in collaboration with Wildy Enterprises Ltd. to design and implement a PLC-based control system for fuel pump automation. The system includes level-based auto/manual control, emergency logic, and visual/audible indicators — all housed in a field-ready cabinet.</p>
+  </section>
+
+  <section class="section">
+    <h2>📸 Final Assembly</h2>
+    <div class="photo-block">
+      <figure>
+        <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/final_box.jpg?raw=true" alt="Final Control Panel">
+        <figcaption>The final product — our PLC control panel fully wired and ready. This box includes all safety components, organized wiring, and programmable logic for field use. Built for durability and flexibility, it is adaptable to future industrial tasks.</figcaption>
+      </figure>
+    </div>
+
+    <h2>🛠️ Fabrication Phase</h2>
+    <div class="photo-block">
+      <figure>
+        <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/workshop_drill.jpg?raw=true" alt="Drilling Panel Base">
+        <figcaption>During our fabrication stage, I contributed to precision drilling and layout planning to ensure our cabinet would have no interference or overcrowding. Measurements were taken based on AutoCAD drawings.</figcaption>
+      </figure>
+    </div>
+
+    <h2>🔌 Team Integration</h2>
+    <div class="photo-block">
+      <figure>
+        <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/panel_team.jpg?raw=true" alt="Team Wiring">
+        <figcaption>Our team effort on wiring was crucial. While I led the PLC programming, I also helped route and terminate wires in a logical and CSA-compliant way. It taught me valuable lessons about wire planning and labeling.</figcaption>
+      </figure>
+    </div>
+
+    <h2>🧰 Component Layout</h2>
+    <div class="photo-block">
+      <figure>
+        <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/teco_panel_topdown.jpg?raw=true" alt="Top Down TECO Panel">
+        <figcaption>Shown here is our final layout — compact but clean. All components are accessible and clearly marked. The panel includes a TECO PLC, motor contactor, terminal blocks, and auxiliary alarm outputs.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🧠 Schematics & PLC Logic</h2>
+    <p>The following materials demonstrate the system’s electrical design and programmable logic. These schematics are proprietary to Wildy Enterprises Ltd. and are presented for portfolio showcase only.</p>
+    <div class="schematics">
+      <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/schematic_sample.jpg?raw=true" alt="Schematic Diagram">
+      <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/plc_logic_sample_1.jpg?raw=true" alt="PLC Logic Page 1">
+      <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/plc_logic_sample_2.jpg?raw=true" alt="PLC Logic Page 2">
+    </div>
+  </section>
+
+  <footer>
+    <p>Want to see the full schematics, ladder logic, and BOM?</p>
+    <a href="https://github.com/Abhayjeet1357/EET-Portfolio/raw/main/public/docs/fuel_pump_project_report.pdf" class="btn-download">Download Full Report (PDF)</a>
+  </footer>
 </body>
 </html>
