@@ -27,7 +27,7 @@
     a:hover{text-decoration:underline}
     .container{max-width:var(--max);margin:auto;padding:0 22px}
 
-    /* Nav */
+   
     .nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(10px);background:rgba(10,16,28,.6);border-bottom:1px solid var(--border)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px}
     .brand{font-weight:800}
@@ -35,7 +35,7 @@
     .nav-links a{padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--panel),var(--panel2))}
     .nav-links a[aria-current="page"]{outline:2px solid var(--accent);outline-offset:1px}
 
-    /* Hero */
+  
     .hero{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;min-height:64vh;padding:44px 0 22px}
     @media (min-width:900px){.hero{grid-template-columns:1fr 1.2fr}}
     .portrait{
@@ -55,7 +55,7 @@
     .chip-row{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
     .chip{border:1px solid var(--border);background:linear-gradient(180deg,var(--panel),var(--panel2));border-radius:999px;padding:6px 12px;font-size:.9rem;color:var(--muted)}
 
-    /* Cards */
+  
     section.card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;margin:22px 0}
     .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:#0f1627;color:var(--muted);font-size:.85rem;margin-bottom:10px}
     h2{font-size:clamp(1.2rem,2.2vw,1.6rem);margin:0 0 12px}
@@ -68,7 +68,7 @@
       padding-left:12px;margin:10px 0
     }
 
-    /* Footer */
+  
     .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:#0f1627;color:var(--text);text-decoration:none;font-weight:600}
     .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#061218;border-color:#1a3a33}
@@ -77,7 +77,7 @@
 </head>
 <body>
 
-  <!-- NAV -->
+
   <nav class="nav" aria-label="Primary">
     <div class="nav-inner container">
       <div class="brand">Abhay Sidhu • EET Portfolio</div>
@@ -90,11 +90,11 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+ 
   <header class="container hero">
     <div class="portrait">
       <div class="frame">
-        <!-- Swap src with your GitHub image link if needed -->
+        
         <img src="abhay.jpg" alt="Portrait of Abhay Sidhu smiling in a modern building." />
       </div>
     </div>
@@ -115,7 +115,7 @@
 
   <main class="container">
 
-    <!-- ORIGIN / PASSION -->
+   
     <section class="card">
       <div class="pill">My Why</div>
       <h2>Passion-first, skills follow</h2>
@@ -127,7 +127,7 @@
       </p>
     </section>
 
-    <!-- SNAPSHOT -->
+   
     <section class="card split">
       <div>
         <div class="pill">Quick Snapshot</div>
@@ -151,7 +151,7 @@
       </div>
     </section>
 
-    <!-- EDUCATION / CONTACT -->
+  
     <section class="card split">
       <div>
         <div class="pill">Education</div>
@@ -159,7 +159,7 @@
         <ul class="clean">
           <li>Focus: Power systems, machines, PLC/automation</li>
           <li>Notable work: Fuel Pump PLC panel; ETAP one-line studies</li>
-          <li>GPA ~3.9; strong lab/field emphasis</li>
+          <li>GPA 3.7; strong lab/field emphasis</li>
         </ul>
       </div>
       <div>
@@ -169,14 +169,14 @@
         <p>Email: <a href="mailto:Abhayjeetsingh7@gmail.com">Abhayjeetsingh7@gmail.com</a><br>
            Phone: <a href="tel:+17786650100">778-665-0100</a></p>
         <div class="cta">
-          <!-- Replace with your actual resume link when ready -->
+          
           <a class="btn primary" href="./docs/Abhay_Sidhu_Resume.pdf">Download Resume (PDF)</a>
           <a class="btn" href="./index.html">Back to Portfolio</a>
         </div>
       </div>
     </section>
 
-    <!-- PERSONAL NOTE -->
+   
     <section class="card">
       <div class="pill">Personal Note</div>
       <h2>What I’m looking for</h2>
