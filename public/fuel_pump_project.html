@@ -2,197 +2,285 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Fuel Pump Project | Abhay Sidhu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Fuel Pump Control Panel | Abhay Sidhu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PLC-based fuel pump control panel designed and built with Wildy Enterprises Ltd. Includes summary, fabrication photos, schematics, and PLC logic highlights." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      color: #e5e5e5;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      background-color: #0c0c0c;
+    :root{
+      --bg:#0b0f16;
+      --bg-2:#0d1424;
+      --panel:#0f1525;
+      --panel-2:#121a2d;
+      --text:#eaf0ff;
+      --muted:#a9b6d6;
+      --accent:#08A391;     /* brand teal from your original */
+      --accent-2:#42bd69;   /* green accent from your original */
+      --border:#21304f;
+      --shadow:0 18px 40px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1180px;
     }
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.85);
-      text-align: center;
+    *{box-sizing:border-box}
+    html,body{margin:0;background:radial-gradient(1200px 700px at 10% 0%, #0f1a30 0%, var(--bg) 55%), linear-gradient(180deg, #0a0f1c, #0a0f1c 40%, #0b1120 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{display:block;max-width:100%;height:auto}
+    .container{max-width:var(--max);margin:auto;padding:0 22px}
+
+    /* --- Nav --- */
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(10,16,28,.6);
+      border-bottom:1px solid var(--border)
     }
-    header h1 {
-      font-size: 3.5em;
-      color: #08A391;
-      text-shadow: 2px 2px #000;
-      margin-bottom: 0.2em;
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .nav-links{display:flex;gap:10px;flex-wrap:wrap}
+    .nav-links a{padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--panel),var(--panel-2))}
+    .nav-links a[aria-current="page"]{outline:2px solid var(--accent);outline-offset:1px}
+
+    /* --- Hero --- */
+    .hero{
+      display:grid;place-items:center;text-align:center;min-height:64vh;padding:54px 22px 24px
     }
-    header p {
-      color: #ccc;
-      font-size: 1.3em;
+    .kicker{color:#8ef0c6;text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:.8rem}
+    h1{margin:.4rem 0 0;font-size:clamp(1.8rem,4vw,3rem);line-height:1.15}
+    .subtitle{max-width:70ch;margin:10px auto 0;color:var(--muted)}
+    .chip-row{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+    .chip{border:1px solid var(--border);background:linear-gradient(180deg,var(--panel),var(--panel-2));border-radius:999px;padding:6px 12px;font-size:.9rem;color:var(--muted)}
+
+    /* --- Sections --- */
+    section.card{
+      background:linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+      border:1px solid var(--border);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:28px;margin:28px 0
     }
-    .section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-      background: rgba(0, 0, 0, 0.85);
-      border-radius: 15px;
-      margin-bottom: 50px;
+    .split{display:grid;gap:22px}
+    @media (min-width:960px){ .split{grid-template-columns:1.05fr .95fr} }
+    h2{font-size:clamp(1.2rem,2.5vw,1.6rem);margin:0 0 12px}
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:#0f1627;color:var(--muted);font-size:.85rem;margin-bottom:10px}
+    .lead{color:var(--muted);margin-top:6px}
+
+    /* --- Photo Gallery --- */
+    .gallery{display:grid;gap:20px}
+    @media (min-width:880px){ .gallery{grid-template-columns:1fr 1fr} }
+    figure.media{
+      position:relative;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#0a0f1c
     }
-    .section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #42bd69;
-      border-left: 6px solid #42bd69;
-      padding-left: 10px;
+    .aspect{aspect-ratio:16/10;overflow:hidden}
+    .media img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease, opacity .45s ease}
+    .media:hover img{transform:scale(1.04);opacity:.9}
+    figcaption{padding:10px 12px;color:var(--muted);font-size:.95rem;border-top:1px solid var(--border);background:linear-gradient(180deg,#0c1424, #0b1220)}
+
+    /* --- Schematic strip --- */
+    .schematics{display:grid;gap:18px;margin-top:8px}
+    @media (min-width:880px){ .schematics{grid-template-columns:1fr 1fr 1fr} }
+    .schematics .media .aspect{aspect-ratio:4/3}
+    .accent-border{border:1px solid var(--accent);box-shadow:0 0 22px rgba(8,163,145,.18)}
+
+    /* --- Lists --- */
+    ul.clean{margin:8px 0 0 1.1rem}
+    ul.clean li{margin:6px 0}
+
+    /* --- CTA / Footer --- */
+    .cta{
+      display:flex;flex-wrap:wrap;gap:12px;margin-top:14px
     }
-    .photo-block {
-      margin-bottom: 60px;
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid var(--border);
+      background:#0f1627;color:var(--text);text-decoration:none;font-weight:600
     }
-    .photo-block figure {
-      position: relative;
-      margin: 40px auto;
-      overflow: hidden;
-      border-radius: 12px;
-      border: 2px solid #2e2e2e;
-      width: 90%;
-      max-width: 900px;
-      height: auto;
-      aspect-ratio: 3 / 2;
+    .btn.primary{background:linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);color:#061218;border-color:#1a3a33}
+    .btn:hover{text-decoration:none;transform:translateY(-1px)}
+    footer.footer{
+      opacity:.9;color:var(--muted);border-top:1px solid var(--border);padding:24px 0;margin:28px 0 40px;text-align:center
     }
-    .photo-block:nth-child(even) figure {
-      max-width: 700px;
-      margin-left: 0;
-    }
-    .photo-block:nth-child(odd) figure {
-      max-width: 1000px;
-      margin-right: 0;
-    }
-    .photo-block img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
-    .photo-block figcaption {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      opacity: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      font-size: 1rem;
-      line-height: 1.6;
-      text-align: center;
-      transition: opacity 0.4s ease;
-    }
-    .photo-block figure:hover img {
-      transform: scale(1.05);
-      opacity: 0.3;
-    }
-    .photo-block figure:hover figcaption {
-      opacity: 1;
-    }
-    .schematics {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      margin-top: 40px;
-    }
-    .schematics img {
-      max-width: 90%;
-      border-radius: 12px;
-      border: 2px solid #08A391;
-      box-shadow: 0 0 18px rgba(8,163,145,0.3);
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      background: rgba(0, 0, 0, 0.85);
-    }
-    .btn-download {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #08A391;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-    .btn-download:hover {
-      background-color: #0dc7a7;
-    }
+
+    /* --- Small niceties --- */
+    .divider{height:1px;background:linear-gradient(90deg, transparent, #223152, transparent);margin:22px 0}
+    .muted{color:var(--muted)}
+    .sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Fuel Pump Control Panel Project</h1>
-    <p>Designed and deployed with Wildy Enterprises Ltd. | Industrial Automation Done Right</p>
+
+  <!-- ===== Sticky Nav ===== -->
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner container">
+      <div class="brand">Abhay Sidhu • EET Portfolio</div>
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./fuel-pump-project.html" aria-current="page">Fuel Pump Project</a>
+        <a href="./etap-analysis.html">ETAP Analysis</a>
+        <a href="./coming-soon.html">More Projects</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <header class="hero container">
+    <div>
+      <div class="kicker">Industrial Automation</div>
+      <h1>Fuel Pump Control Panel — PLC System</h1>
+      <p class="subtitle">
+        Designed and deployed with <strong>Wildy Enterprises Ltd.</strong> A field-ready cabinet featuring level-based Auto/Manual control,
+        E-stop logic, visual/audible alarms, and clean wiring practices.
+      </p>
+      <div class="chip-row" role="list" aria-label="Project metadata">
+        <span class="chip" role="listitem">TECO PLC</span>
+        <span class="chip" role="listitem">24 VDC control</span>
+        <span class="chip" role="listitem">CSA-aware wiring</span>
+        <span class="chip" role="listitem">Auto/Manual modes</span>
+        <span class="chip" role="listitem">Panel fabrication</span>
+      </div>
+    </div>
   </header>
 
-  <section class="section">
-    <h2>📘 Project Summary</h2>
-    <p>This project was developed in collaboration with Wildy Enterprises Ltd. to design and implement a PLC-based control system for fuel pump automation. The system includes level-based auto/manual control, emergency logic, and visual/audible indicators — all housed in a field-ready cabinet.</p>
-  </section>
+  <main class="container" id="content">
 
-  <section class="section">
-    <h2>📸 Final Assembly</h2>
-    <div class="photo-block">
-      <figure>
-        <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/final_box.jpg?raw=true" alt="Final Control Panel">
-        <figcaption>The final product — our PLC control panel fully wired and ready. This box includes all safety components, organized wiring, and programmable logic for field use. Built for durability and flexibility, it is adaptable to future industrial tasks.</figcaption>
-      </figure>
-    </div>
+    <!-- ===== Summary ===== -->
+    <section class="card" aria-labelledby="summary-h">
+      <div class="pill">📘 Project Summary</div>
+      <h2 id="summary-h">Overview</h2>
+      <p class="lead">
+        This project delivers a PLC-based control system for fuel pump automation. The cabinet integrates level sensing,
+        permissives, interlocks, and alarm outputs to ensure safe and reliable operation in the field.
+      </p>
+      <div class="divider"></div>
+      <div class="split">
+        <div>
+          <h3>Objectives</h3>
+          <ul class="clean">
+            <li>Implement robust <strong>Auto/Manual</strong> modes with clear operator status.</li>
+            <li>Wire to neat, maintainable standards with thorough <strong>labeling</strong>.</li>
+            <li>Provide <strong>alarm</strong> outputs (visual + audible) for abnormal/level conditions.</li>
+            <li>Design a layout optimized for <strong>serviceability</strong> and future expansion.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>My Role</h3>
+          <ul class="clean">
+            <li>Panel <strong>layout</strong> and <strong>fabrication</strong> assistance (drilling, mounting, routing).</li>
+            <li><strong>PLC programming</strong> (logic for levels, alarms, and mode control).</li>
+            <li><strong>Wiring & termination</strong> with attention to CSA-aware practices.</li>
+            <li>Documentation: photos, schematics excerpts, and report packaging.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/Abhayjeet1357/EET-Portfolio/raw/main/public/docs/fuel_pump_project_report.pdf">Download Full Report (PDF)</a>
+        <a class="btn" href="./index.html">Back to Portfolio</a>
+      </div>
+    </section>
 
-    <h2>🛠️ Fabrication Phase</h2>
-    <div class="photo-block">
-      <figure>
-        <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/workshop_drill.jpg?raw=true" alt="Drilling Panel Base">
-        <figcaption>During our fabrication stage, I contributed to precision drilling and layout planning to ensure our cabinet would have no interference or overcrowding. Measurements were taken based on AutoCAD drawings.</figcaption>
-      </figure>
-    </div>
+    <!-- ===== Photo Gallery ===== -->
+    <section class="card" aria-labelledby="gallery-h">
+      <div class="pill">📸 Build Gallery</div>
+      <h2 id="gallery-h">From Fabrication to Final Assembly</h2>
+      <div class="gallery">
+        <figure class="media">
+          <div class="aspect">
+            <img loading="lazy" src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/final_box.jpg?raw=true" alt="Completed control panel enclosure with organized wiring and labeled devices." />
+          </div>
+          <figcaption>The final panel: clean wiring, labeled terminals, and logic ready for field deployment.</figcaption>
+        </figure>
 
-    <h2>🔌 Team Integration</h2>
-    <div class="photo-block">
-      <figure>
-        <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/panel_team.jpg?raw=true" alt="Team Wiring">
-        <figcaption>Our team effort on wiring was crucial. While I led the PLC programming, I also helped route and terminate wires in a logical and CSA-compliant way. It taught me valuable lessons about wire planning and labeling.</figcaption>
-      </figure>
-    </div>
+        <figure class="media">
+          <div class="aspect">
+            <img loading="lazy" src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/workshop_drill.jpg?raw=true" alt="Drilling and layout work during panel fabrication phase." />
+          </div>
+          <figcaption>Fabrication phase: precision drilling and layout per the AutoCAD drawings.</figcaption>
+        </figure>
 
-    <h2>🧰 Component Layout</h2>
-    <div class="photo-block">
-      <figure>
-        <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/teco_panel_topdown.jpg?raw=true" alt="Top Down TECO Panel">
-        <figcaption>Shown here is our final layout — compact but clean. All components are accessible and clearly marked. The panel includes a TECO PLC, motor contactor, terminal blocks, and auxiliary alarm outputs.</figcaption>
-      </figure>
-    </div>
-  </section>
+        <figure class="media">
+          <div class="aspect">
+            <img loading="lazy" src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/panel_team.jpg?raw=true" alt="Team wiring session with harness routing and terminations." />
+          </div>
+          <figcaption>Team integration: routing, terminating, and QC checks for reliability.</figcaption>
+        </figure>
 
-  <section class="section">
-    <h2>🧠 Schematics & PLC Logic</h2>
-    <p>The following materials demonstrate the system’s electrical design and programmable logic. These schematics are proprietary to Wildy Enterprises Ltd. and are presented for portfolio showcase only.</p>
-    <div class="schematics">
-      <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/schematic_sample.jpg?raw=true" alt="Schematic Diagram">
-      <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/plc_logic_sample_1.jpg?raw=true" alt="PLC Logic Page 1">
-      <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/plc_logic_sample_2.jpg?raw=true" alt="PLC Logic Page 2">
-    </div>
-  </section>
+        <figure class="media">
+          <div class="aspect">
+            <img loading="lazy" src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/teco_panel_topdown.jpg?raw=true" alt="Top-down view of the TECO PLC panel layout." />
+          </div>
+          <figcaption>Compact top-down layout featuring TECO PLC, contactor, terminals, and alarm outputs.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-  <footer>
-    <p>Want to see the full schematics, ladder logic, and BOM?</p>
-    <a href="https://github.com/Abhayjeet1357/EET-Portfolio/raw/main/public/docs/fuel_pump_project_report.pdf" class="btn-download">Download Full Report (PDF)</a>
-  </footer>
+    <!-- ===== Schematics & PLC Logic ===== -->
+    <section class="card" aria-labelledby="schem-h">
+      <div class="pill">🧠 Schematics & PLC Logic</div>
+      <h2 id="schem-h">Design Artifacts</h2>
+      <p class="lead">
+        The following materials demonstrate the system’s electrical design and programmable logic (shared for portfolio showcase only).
+      </p>
+
+      <div class="schematics">
+        <figure class="media accent-border">
+          <div class="aspect">
+            <img loading="lazy" src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/schematic_sample.jpg?raw=true" alt="Excerpt of the schematic diagram used for wiring and layout." />
+          </div>
+          <figcaption>Schematic excerpt — device references, wire numbers, and I/O mapping.</figcaption>
+        </figure>
+
+        <figure class="media accent-border">
+          <div class="aspect">
+            <img loading="lazy" src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/plc_logic_sample_1.jpg?raw=true" alt="PLC ladder logic page showing level control and permissives." />
+          </div>
+          <figcaption>PLC logic — level control, permissives, and alarm latching.</figcaption>
+        </figure>
+
+        <figure class="media accent-border">
+          <div class="aspect">
+            <img loading="lazy" src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/plc_logic_sample_2.jpg?raw=true" alt="Additional PLC ladder logic page with mode handling and outputs." />
+          </div>
+          <figcaption>PLC logic — Auto/Manual modes and output control.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== Quick Specs / Skills ===== -->
+    <section class="card" aria-labelledby="skills-h">
+      <div class="pill">🧩 At a Glance</div>
+      <h2 id="skills-h">Skills & Tools</h2>
+      <div class="split">
+        <div>
+          <h3>Skills Demonstrated</h3>
+          <ul class="clean">
+            <li>Panel layout, fabrication & neat wiring practices</li>
+            <li>PLC programming (ladder logic, modes, alarms)</li>
+            <li>Documentation & report packaging</li>
+            <li>Team integration, QA/QC mindset</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Tools & Tech</h3>
+          <ul class="clean">
+            <li>TECO PLC platform</li>
+            <li>AutoCAD for schematics & layout</li>
+            <li>Hand tools: drilling, mounting, terminations</li>
+            <li>Labeling & wire management standards</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/Abhayjeet1357/EET-Portfolio/raw/main/public/docs/fuel_pump_project_report.pdf">Download Full Report (PDF)</a>
+        <a class="btn" href="./coming-soon.html">See What’s Next</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © <span id="yr"></span> Abhay Sidhu — Project completed in collaboration with Wildy Enterprises Ltd.
+    </footer>
+  </main>
+
+  <script>
+    // Year stamp
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
