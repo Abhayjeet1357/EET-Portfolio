@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Me | Abhay Sidhu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="About Abhay Sidhu — Electrical Engineering Technology grad passionate about power systems, controls, and hands-on projects." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f16;
+      --bg2:#0d1424;
+      --panel:#0f1525;
+      --panel2:#121a2d;
+      --text:#eaf0ff;
+      --muted:#a9b6d6;
+      --accent:#08A391;
+      --accent2:#42bd69;
+      --border:#21304f;
+      --radius:18px;
+      --max:1100px;
+      --shadow:0 18px 40px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:radial-gradient(1200px 700px at 10% 0%, #0f1a30 0%, var(--bg) 55%), linear-gradient(180deg, #0a0f1c, #0a0f1c 40%, #0b1120 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--max);margin:auto;padding:0 22px}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(10px);background:rgba(10,16,28,.6);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px}
+    .brand{font-weight:800}
+    .nav-links{display:flex;gap:10px;flex-wrap:wrap}
+    .nav-links a{padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--panel),var(--panel2))}
+    .nav-links a[aria-current="page"]{outline:2px solid var(--accent);outline-offset:1px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;min-height:64vh;padding:44px 0 22px}
+    @media (min-width:900px){.hero{grid-template-columns:1fr 1.2fr}}
+    .portrait{
+      display:grid;place-items:center
+    }
+    .portrait .frame{
+      width:240px;height:240px;border-radius:50%;
+      background:linear-gradient(180deg,#0c162a,#0c1424);
+      border:2px solid var(--accent);
+      box-shadow:0 0 26px rgba(8,163,145,.22), 0 12px 40px rgba(0,0,0,.45);
+      overflow:hidden
+    }
+    .portrait img{width:100%;height:100%;object-fit:cover}
+    .kicker{color:#8ef0c6;text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:.8rem}
+    h1{margin:.3rem 0 0;font-size:clamp(1.8rem,4vw,3rem);line-height:1.15}
+    .tagline{color:var(--muted);margin-top:8px;max-width:60ch}
+    .chip-row{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+    .chip{border:1px solid var(--border);background:linear-gradient(180deg,var(--panel),var(--panel2));border-radius:999px;padding:6px 12px;font-size:.9rem;color:var(--muted)}
+
+    /* Cards */
+    section.card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;margin:22px 0}
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:#0f1627;color:var(--muted);font-size:.85rem;margin-bottom:10px}
+    h2{font-size:clamp(1.2rem,2.2vw,1.6rem);margin:0 0 12px}
+    .split{display:grid;gap:22px}
+    @media (min-width:920px){.split{grid-template-columns:1.1fr .9fr}}
+    ul.clean{margin:8px 0 0 1.1rem}
+    ul.clean li{margin:6px 0}
+    .quote{
+      font-style:italic;color:var(--muted);border-left:4px solid var(--accent2);
+      padding-left:12px;margin:10px 0
+    }
+
+    /* Footer */
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:#0f1627;color:var(--text);text-decoration:none;font-weight:600}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#061218;border-color:#1a3a33}
+    footer{opacity:.9;color:var(--muted);border-top:1px solid var(--border);padding:22px 0;margin:28px 0 40px;text-align:center}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner container">
+      <div class="brand">Abhay Sidhu • EET Portfolio</div>
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./fuel_pump_project.html">Fuel Pump Project</a>
+        <a href="./Etap_Project.html">ETAP Project</a>
+        <a href="./about_me.html" aria-current="page">About Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="container hero">
+    <div class="portrait">
+      <div class="frame">
+        <!-- Swap src with your GitHub image link if needed -->
+        <img src="abhay.jpg" alt="Portrait of Abhay Sidhu smiling in a modern building." />
+      </div>
+    </div>
+    <div>
+      <div class="kicker">About Me</div>
+      <h1>Hey, I’m Abhay — an EET grad who loves the journey.</h1>
+      <p class="tagline">
+        I get geeked about power systems, controls, and building real hardware that actually works. I was born in India, grew up in Canada, and I’m all about learning by doing — from PLC panels to ETAP studies.
+      </p>
+      <div class="chip-row">
+        <span class="chip">Electrical Eng Tech (SAIT)</span>
+        <span class="chip">GPA ~3.9</span>
+        <span class="chip">PLC / AutoCAD / ETAP</span>
+        <span class="chip">Calgary · Airdrie, AB</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ORIGIN / PASSION -->
+    <section class="card">
+      <div class="pill">My Why</div>
+      <h2>Passion-first, skills follow</h2>
+      <p class="quote">“The man who loves walking will walk farther than the man who loves the destination.”</p>
+      <p>
+        That line sums up how I approach engineering. I found electrical early — grade 11 labs had me hooked —
+        and I’ve kept walking ever since: projects, late-night debugging, and asking <em>why</em> until it clicks.
+        I believe when you genuinely enjoy the work, the skills and experience become inevitable.
+      </p>
+    </section>
+
+    <!-- SNAPSHOT -->
+    <section class="card split">
+      <div>
+        <div class="pill">Quick Snapshot</div>
+        <h2>What I’m into</h2>
+        <ul class="clean">
+          <li>Designing and wiring <strong>PLC control panels</strong> with clean, labeled layouts.</li>
+          <li>Running <strong>ETAP studies</strong> (load flow, short-circuit) and documenting results.</li>
+          <li>Making <strong>clear schematics</strong> and tidy bills of materials in AutoCAD.</li>
+          <li>Learning fast, writing clean notes, and sharing what I learn.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="pill">Skills</div>
+        <h2>Toolkit</h2>
+        <ul class="clean">
+          <li>PLC: Ladder logic, Auto/Manual modes, alarms</li>
+          <li>CAD: Schematics, panel layouts, labeling</li>
+          <li>Power: Transformers, generators, protection basics</li>
+          <li>Software: TECO, ETAP, AutoCAD, MS Office</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION / CONTACT -->
+    <section class="card split">
+      <div>
+        <div class="pill">Education</div>
+        <h2>SAIT — Electrical Engineering Technology</h2>
+        <ul class="clean">
+          <li>Focus: Power systems, machines, PLC/automation</li>
+          <li>Notable work: Fuel Pump PLC panel; ETAP one-line studies</li>
+          <li>GPA ~3.9; strong lab/field emphasis</li>
+        </ul>
+      </div>
+      <div>
+        <div class="pill">Contact</div>
+        <h2>Let’s connect</h2>
+        <p class="muted">Airdrie, AB · Canada</p>
+        <p>Email: <a href="mailto:Abhayjeetsingh7@gmail.com">Abhayjeetsingh7@gmail.com</a><br>
+           Phone: <a href="tel:+17786650100">778-665-0100</a></p>
+        <div class="cta">
+          <!-- Replace with your actual resume link when ready -->
+          <a class="btn primary" href="./docs/Abhay_Sidhu_Resume.pdf">Download Resume (PDF)</a>
+          <a class="btn" href="./index.html">Back to Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAL NOTE -->
+    <section class="card">
+      <div class="pill">Personal Note</div>
+      <h2>What I’m looking for</h2>
+      <p>
+        Early-career roles where I can keep learning and build reliable systems —
+        field service, power systems support, or controls/automation. If your team values curiosity,
+        ownership, and clean execution, I’ll fit right in.
+      </p>
+    </section>
+
+    <footer>© <span id="yr"></span> Abhay Sidhu</footer>
+  </main>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
