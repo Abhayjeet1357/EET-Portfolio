@@ -1,1 +1,214 @@
-fvsfsff
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ETAP Power System Analysis | Abhay Sidhu</title>
+  <meta name="description" content="ETAP-based Load Flow and Short-Circuit analysis performed by Abhay Sidhu for a medium-voltage industrial one-line. Includes diagrams, assumptions, and key learnings." />
+  <meta name="author" content="Abhay Sidhu" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f16;
+      --panel:#101725;
+      --panel-2:#0e1421;
+      --text:#e8eefc;
+      --muted:#a9b6d6;
+      --accent:#6ea8fe;
+      --accent-2:#8ef0c6;
+      --border:#1f2a44;
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#0b0f16 0%, #0c1322 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:auto;padding:24px}
+    header.nav{
+      position:sticky;top:0;backdrop-filter: blur(10px);
+      background:rgba(11,15,22,.6);border-bottom:1px solid var(--border);z-index:20
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--max);margin:auto;padding:12px 20px}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .nav-links{display:flex;gap:16px;flex-wrap:wrap}
+    .nav-links a{padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:var(--panel-2)}
+    .hero{
+      display:grid;gap:18px;padding:48px 24px 16px;max-width:var(--max);margin:auto
+    }
+    .kicker{font-weight:600;color:var(--accent-2);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem}
+    h1{margin:0;font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.15}
+    .hero p{color:var(--muted);max-width:70ch;margin:0}
+    .grid{
+      display:grid;gap:22px;margin:26px auto
+    }
+    @media (min-width:880px){ .grid.two{grid-template-columns:1.2fr .8fr} }
+    section.card{
+      background:linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+      border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px
+    }
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:#0f1627;color:var(--muted);font-size:.85rem}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    figure{margin:0}
+    .img-wrap{
+      position:relative;background:#0b0f16;border:1px solid var(--border);border-radius:14px;overflow:hidden
+    }
+    img{
+      display:block;width:100%;height:auto;object-fit:contain;background:#0b0f16
+    }
+    figcaption{
+      font-size:.9rem;color:var(--muted);padding:10px 6px 0 6px
+    }
+    ul{margin:0 0 0 1.2rem}
+    .badge{font-weight:600;color:var(--accent)}
+    .learn{display:grid;gap:10px}
+    .learn li{margin-bottom:8px}
+    .footer{
+      opacity:.85;color:var(--muted);border-top:1px solid var(--border);padding:24px 0;margin-top:36px
+    }
+    .code{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      background:#0a1120;border:1px solid var(--border);padding:2px 6px;border-radius:8px
+    }
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);
+      background:#0f1627;color:var(--text);text-decoration:none
+    }
+    .btn.primary{background:linear-gradient(90deg, #457aff, #46d6a9)}
+  </style>
+</head>
+<body>
+
+  <!-- Top Nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">Abhay Sidhu • EET Portfolio</div>
+      <nav class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./fuel-pump-project.html">Fuel Pump Controller</a>
+        <a href="./etap-analysis.html" aria-current="page">ETAP Analysis</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <span class="kicker">Power System Studies</span>
+    <h1>ETAP One-Line: Load Flow & Short-Circuit Analysis</h1>
+    <p>
+      During my Electrical Engineering Technology diploma, I modeled a medium-voltage industrial system in <strong>ETAP</strong> and ran
+      <span class="badge">Load Flow</span> and <span class="badge">3-Phase Short-Circuit</span> studies. Below are the annotated one-line diagrams and a brief write-up of objectives, assumptions, and key takeaways.
+    </p>
+    <div class="btn-row">
+      <a class="btn primary" href="./index.html">Back to Portfolio</a>
+      <a class="btn" href="https://etap.com/" target="_blank" rel="noopener">What is ETAP?</a>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <main class="wrap">
+    <div class="grid two">
+      <!-- Left column: images -->
+      <section class="card" aria-labelledby="lf-title">
+        <div class="pill">Study • Load Flow (LF)</div>
+        <h2 id="lf-title">Load Flow Results</h2>
+        <p class="muted">
+          The LF study calculates steady-state voltages, real/reactive power flow, and losses under normal operating conditions. My objectives:
+        </p>
+        <ul>
+          <li>Validate bus voltage profiles (keep within ±10% of nominal).</li>
+          <li>Check transformer loading &amp; cable current margins.</li>
+          <li>Quantify real power losses and major reactive power sinks/sources.</li>
+        </ul>
+        <figure>
+          <div class="img-wrap">
+            <!-- 🔁 Replace the src with your GitHub-hosted image link -->
+            <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/Load%20Flow%20Analysis.png?raw=1" alt="ETAP one-line diagram showing Load Flow results with bus voltages, power flows, and transformer loadings." />
+          </div>
+          <figcaption>Annotated ETAP Load Flow diagram with kW/kvar flows and per-unit voltage indicators.</figcaption>
+        </figure>
+      </section>
+
+      <section class="card" aria-labelledby="sc-title">
+        <div class="pill">Study • Short-Circuit (SC)</div>
+        <h2 id="sc-title">Short-Circuit Results</h2>
+        <p>
+          The SC study determines fault duties for equipment specification and protection coordination. I focused on:
+        </p>
+        <ul>
+          <li>3-phase bolted fault current at each bus (initial symmetrical RMS).</li>
+          <li>Transformer X/R effects on DC offset and duty ratings.</li>
+          <li>Verifying breaker interrupting ratings against calculated duties.</li>
+        </ul>
+        <figure>
+          <div class="img-wrap">
+            <!-- 🔁 Replace the src with your GitHub-hosted image link -->
+            <img src="https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/images/Short%20Circuit%20Analysis.png?raw=1" alt="ETAP one-line diagram showing 3-phase short-circuit currents and X/R ratios at buses." />
+          </div>
+          <figcaption>Annotated ETAP Short-Circuit diagram with kA duties and positive X/R ratios by location.</figcaption>
+        </figure>
+      </section>
+    </div>
+
+    <!-- Right/Bottom: write-up -->
+    <section class="card">
+      <div class="pill">Overview</div>
+      <h2>ETAP in a nutshell</h2>
+      <p>
+        <strong>ETAP (Electrical Transient Analyzer Program)</strong> is industry software for modeling, analyzing, and operating power systems.
+        Typical student workflows include: defining a one-line, assigning equipment data (utility source, generators, transformers, cables, and loads),
+        then running study cases (LF, SC, Motor Starting, Harmonics, Protective Device Coordination).
+      </p>
+      <div class="meta">
+        <span class="pill">Scope: 39&nbsp;kV utility → 6&nbsp;kV MV bus → 600&nbsp;V LV buses</span>
+        <span class="pill">Components: Utility, Generator 12&nbsp;MW, TXs, Cables, LV Loads</span>
+        <span class="pill">Focus: Voltage profile, loading, fault duties</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="pill">Assumptions & Inputs</div>
+      <h2>Model Assumptions (student project)</h2>
+      <ul>
+        <li>Balanced three-phase system; power factor per nameplates (e.g., loads 0.97–0.78).</li>
+        <li>Transformer impedances entered as nameplate %Z; positive-sequence R/X as provided.</li>
+        <li>Utility short-circuit strength set by available MVA and X/R; generator subtransient <span class="code">Xd″</span> per data.</li>
+        <li>Cable positive-sequence R and X per length (ohms/km → ohms @ run length).</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="pill">Key Takeaways</div>
+      <h2>Results & Learnings</h2>
+      <ul class="learn">
+        <li><strong>Voltage Profile:</strong> MV bus voltages held within acceptable range; LV buses showed small drops consistent with cable R/X and transformer taps.</li>
+        <li><strong>Loading:</strong> Transformers and cables operated below nameplate limits in the studied case; hottest run identified for future upsizing check.</li>
+        <li><strong>Losses/Vars:</strong> Major reactive power flow tracked into LV loads; highlights where PFC (capacitors/VFDs) would have impact.</li>
+        <li><strong>Fault Duties:</strong> Highest kA at the first LV bus off each transformer; ensured breaker interrupting ratings exceed calculated duties with margin.</li>
+        <li><strong>Protection Planning:</strong> SC results provide the inputs for time-current coordination studies (next step: relay/breaker TCCs).</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="pill">How I’d extend this</div>
+      <h2>Next Steps (if you want to see more)</h2>
+      <ul>
+        <li>Add a <strong>motor starting</strong> case to check LV dips and generator ride-through.</li>
+        <li>Run a <strong>protective device coordination</strong> study and include TCC curves.</li>
+        <li>Document a <strong>what-if</strong> case: utility weak grid vs. strong grid and compare fault duties.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <p>© <span id="yr"></span> Abhay Sidhu. Project completed during EET diploma (Calgary, Canada). Images generated in ETAP.</p>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
