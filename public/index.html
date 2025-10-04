@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,8 @@
       font-family: Arial, sans-serif;
       padding: 40px;
       text-align: center;
+      position: relative;
+      min-height: 100vh;
     }
 
     h1 {
@@ -50,6 +51,21 @@
       color: #ffffff;
       text-shadow: 1px 1px #888;
     }
+
+    /* subtle footer-style link */
+    .about-link {
+      position: absolute;
+      right: 40px;
+      bottom: 25px;
+      font-size: 1em;
+      color: #999;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .about-link:hover {
+      color: #42bd69;
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 <body>
@@ -58,12 +74,11 @@
 
   <ul class="project-list">
     <li><a href="fuel_pump_project.html">🛠️ Fuel Pump Control Panel Project</a></li>
-    
-   <li><a href="Etap_Project.html">💻Etap Project</a></li>
-
-    <li><a href="Arduino.html">📟Arduino Project</a></li>
-    
+    <li><a href="Etap_Project.html">💻 ETAP Power System Project</a></li>
+    <li><a href="Arduino.html">📟 Arduino Project</a></li>
   </ul>
+
+  <a class="about-link" href="about_me.html">👤 About Me</a>
 
 </body>
 </html>
