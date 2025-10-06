@@ -113,13 +113,14 @@
 
     <section id="why">
       <div class="card">
-        <h2>Assumptions</h2>
+        <h2>Assumptions & scope boundaries</h2>
         <ul>
-          <li> Building assumed to be a 24/7 operating commercial facility.</li>
+          <li>Building assumed to be a 24/7 operating commercial facility.</li>
           <li>Average Demand ~ 1.6 MW, peak load of 2.5 MW between 5PM - 8PM.</li>
           <li>Off-peak load (1AM - 5AM)- 0.8MW.</li>
           <li>BESS rated at 1MW/1MWh.</li>
           <li>Energy price assumed to be $0.10/kWh off-peak and $0.20/kWh peak.</li>
+          <li>Wires and fuses/circuit breakers sizing & pricing not included in scope.</li>
         </ul>
        
       </div>
@@ -129,15 +130,17 @@
       <div class="card">
         <h2>Why This Is Important</h2>
         <ul>
-          <li><strong>Peak shaving:</strong> Charge off-peak, discharge during 17:00–20:00 to chop the building’s peak demand.</li>
-          <li><strong>Stability:</strong> Fast charge/discharge dampens voltage/frequency blips and smooths renewables.</li>
-          <li><strong>Capex deferral:</strong> Lower peaks can defer upstream feeder/panel upgrades.</li>
+          <li><strong>Peak shaving:</strong> During off-peak hours when theres low demand and the price is low, the system can charge the batteries. These batteries can then be used 
+            during peak load times or during an emergency, this allows for a profit over time by saving the money from load shaving and acts as a backup incase of an emergency.</li>
+          <li><strong>Stability:</strong> The E-house monitors the power frequency levels of the supply to the building and can adjust the power from/to the battery to achieve smooth 
+          frequency for the whole building. This results in stable power at all times which is great for the grid and the loads.</li>
+          
         </ul>
-        <p class="muted">BESS acts like a grid shock absorber — store when there’s surplus, inject when it’s tight.</p>
+       
       </div>
     </section>
 
-    <!-- 3) SLD -->
+  
     <section id="sld">
       <div class="card">
         <h2>Simplified Single-Line Diagram (SLD)</h2>
