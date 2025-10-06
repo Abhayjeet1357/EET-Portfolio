@@ -34,19 +34,38 @@
     .spaced{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
     .kbd{display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:8px;background:#121212;color:var(--muted);font-size:12px}
     footer{padding:26px 0;border-top:1px solid var(--border)}
+  
+  
+   .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(10,16,28,.6);
+      border-bottom:1px solid var(--border)
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .nav-links{display:flex;gap:10px;flex-wrap:wrap}
+    .nav-links a{padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--panel),var(--panel-2))}
+    .nav-links a[aria-current="page"]{outline:2px solid var(--accent);outline-offset:1px}
+
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <!-- PROJECT SWITCHER (update hrefs to your actual pages) -->
-      <nav class="switcher">
-        <a href="./index.html">All Projects</a>
-        <a href="./fuel-pump.html">PLC Fuel Pump Controller</a>
-        <a href="./arduino-starter.html">Arduino Mini Projects</a>
-        <a href="./revit-sample.html">Revit Drafting Sample</a>
-        <a href="./bess-estimate.html" style="border-color:var(--accent)">BESS Estimate (You are here)</a>
-      </nav>
+     <nav class="nav" aria-label="Primary">
+    <div class="nav-inner container">
+      <div class="brand">Abhay Sidhu • EET Portfolio</div>
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./fuel_pump_project.html">Fuel Pump Project</a>
+        <a href="./Etap_Project.html">ETAP Project</a>
+        <a href="./Arduino.html">Arduino Project</a>
+        <a href="./Revit.html">Revit Project</a>
+        <a href="./ITI.html" aria-current="page">Electrical Estimator Project</a>
+        <a href="./about_me.html">About Me</a>
+      </div>
+    </div>
+  </nav>
 
       <span class="pill">Estimator • Training Sample</span>
       <h1>Battery Energy Storage Estimate — Building-Scale (ITI-Inspired)</h1>
