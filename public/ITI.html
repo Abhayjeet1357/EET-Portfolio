@@ -3,359 +3,225 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Battery Energy Storage Estimate — Building-Scale (ITI-Inspired)</title>
-  <meta name="description" content="Building-scale BESS estimating sample inspired by ITI's utility project. Includes assumptions, one-line diagram, equipment, protection, and cost snapshot." />
+  <title>BESS Estimate — Building-Scale (ITI-Inspired)</title>
+  <meta name="description" content="Building-scale BESS estimating sample inspired by ITI’s utility project. Assumptions, SLD, operation, materials with budget links, and cost snapshot." />
   <style>
-    :root {
-      --bg: #0f0f0f;
-      --card: #171717;
-      --muted: #b9b9b9;
-      --text: #f0f0f0;
-      --accent: #08A391;
-      --accent-dim: #0a6f64;
-      --border: #2a2a2a;
+    :root{
+      --bg:#0f0f0f;--card:#171717;--muted:#b9b9b9;--text:#f0f0f0;
+      --accent:#08A391;--border:#2a2a2a;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    header {
-      padding: 64px 24px 32px;
-      background: radial-gradient(1200px 400px at 20% -10%, rgba(8,163,145,0.18), rgba(0,0,0,0));
-      border-bottom: 1px solid var(--border);
-    }
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    .pill {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      color: var(--accent);
-      background: rgba(8,163,145,0.08);
-    }
-    h1 {
-      font-size: clamp(28px, 4vw, 44px);
-      margin: 16px 0 8px;
-      color: var(--accent);
-      text-shadow: 0 0 18px rgba(8,163,145,0.25);
-    }
-    .sub { color: var(--muted); max-width: 860px; }
-    nav.quick {
-      margin-top: 18px;
-      display: flex; flex-wrap: wrap; gap: 10px;
-    }
-    nav.quick a {
-      padding: 8px 12px; border: 1px solid var(--border);
-      border-radius: 10px; color: var(--text); background: #141414;
-    }
-    section { padding: 28px 0; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
-    }
-    h2 { margin: 0 0 14px; font-size: 22px; }
-    h3 { margin: 16px 0 10px; font-size: 18px; color: var(--accent); }
-    .grid { display: grid; gap: 18px; }
-    @media (min-width: 860px) {
-      .grid-2 { grid-template-columns: 1.2fr 1fr; }
-      .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    }
-    ul.inline { margin: 8px 0 0 18px; }
-    .muted { color: var(--muted); }
-    .kbd {
-      display: inline-block; padding: 2px 8px; border: 1px solid var(--border);
-      border-radius: 8px; background: #121212; color: var(--muted); font-size: 12px;
-    }
-    .img-wrap {
-      background: #0c0c0c; border: 1px dashed var(--border);
-      border-radius: 12px; padding: 10px; text-align: center;
-    }
-    .img-wrap img {
-      width: 100%; height: auto; border-radius: 8px;
-    }
-    table {
-      width: 100%; border-collapse: collapse; border: 1px solid var(--border);
-      background: #121212; border-radius: 10px; overflow: hidden;
-    }
-    th, td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
-    th { text-align: left; background: #141414; color: var(--accent); }
-    tfoot td { border-top: 1px solid var(--border); color: var(--muted); }
-    .footer-note { font-size: 13px; color: var(--muted); }
-    .btn {
-      display: inline-block; padding: 10px 14px; border-radius: 10px;
-      background: var(--accent); color: #041916; font-weight: 600;
-    }
-    .btn.outline {
-      background: transparent; color: var(--accent); border: 1px solid var(--accent);
-    }
-    .spaced { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    header{padding:28px 24px;border-bottom:1px solid var(--border);background:radial-gradient(1000px 300px at 15% -10%,rgba(8,163,145,.18),rgba(0,0,0,0))}
+    .container{max-width:1080px;margin:0 auto;padding:0 24px}
+    .switcher{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 12px}
+    .switcher a{padding:8px 12px;border:1px solid var(--border);border-radius:10px;background:#141414;color:var(--text)}
+    h1{margin:8px 0 6px;font-size:clamp(26px,4vw,42px);color:var(--accent);text-shadow:0 0 18px rgba(8,163,145,.25)}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--accent);border-radius:999px;background:rgba(8,163,145,.08);color:var(--accent);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+    section{padding:26px 0}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
+    .grid{display:grid;gap:18px}
+    @media (min-width:860px){.grid-2{grid-template-columns:1.2fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}}
+    h2{margin:0 0 12px;font-size:22px} h3{margin:14px 0 8px;font-size:18px;color:var(--accent)}
+    .muted{color:var(--muted)}
+    table{width:100%;border-collapse:collapse;border:1px solid var(--border);background:#121212;border-radius:10px;overflow:hidden}
+    th,td{padding:10px 12px;border-bottom:1px solid var(--border)} th{text-align:left;background:#141414;color:var(--accent)}
+    .img-wrap{background:#0c0c0c;border:1px dashed var(--border);border-radius:12px;padding:10px;text-align:center}
+    .img-wrap img{width:100%;height:auto;border-radius:8px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#041916;font-weight:600}
+    .btn.outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+    .spaced{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .kbd{display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:8px;background:#121212;color:var(--muted);font-size:12px}
+    footer{padding:26px 0;border-top:1px solid var(--border)}
   </style>
 </head>
 <body>
   <header>
     <div class="container">
+      <!-- PROJECT SWITCHER (update hrefs to your actual pages) -->
+      <nav class="switcher">
+        <a href="./index.html">All Projects</a>
+        <a href="./fuel-pump.html">PLC Fuel Pump Controller</a>
+        <a href="./arduino-starter.html">Arduino Mini Projects</a>
+        <a href="./revit-sample.html">Revit Drafting Sample</a>
+        <a href="./bess-estimate.html" style="border-color:var(--accent)">BESS Estimate (You are here)</a>
+      </nav>
+
       <span class="pill">Estimator • Training Sample</span>
       <h1>Battery Energy Storage Estimate — Building-Scale (ITI-Inspired)</h1>
-      <p class="sub">
-        This project is inspired by Island Technical Installations’ utility-scale BESS work. I’ve scaled the concept down
-        to a single large building to demonstrate estimating workflow: stating assumptions, mapping a simple single-line,
-        selecting equipment, and rolling up a materials + labour cost snapshot.
-      </p>
-      <nav class="quick">
-        <a href="#assumptions">Assumptions</a>
-        <a href="#diagram">System Diagram</a>
-        <a href="#operation">How It Works & Protection</a>
-        <a href="#equipment">Equipment & Data Sheets</a>
-        <a href="#costs">Cost Snapshot</a>
-        <a href="index.html" class="outline btn">← Back to Portfolio</a>
-      </nav>
+      <p class="muted">Inspired by Island Technical Installations’ utility-scale BESS work. Scaled down to a single large building to demonstrate estimating workflow.</p>
     </div>
   </header>
 
   <main class="container">
-   
-    <section id="intro">
+    <!-- 1) WHAT THIS PROJECT IS -->
+    <section id="what">
       <div class="card grid grid-2">
         <div>
-          <h2>Project Overview</h2>
+          <h2>What This Project Is</h2>
           <p>
-            Inspired by ITI’s 20&nbsp;MW utility-scale BESS, this building-scale exercise shows how I’d structure an estimate when design info is limited.
-            I document assumptions, produce a simplified SLD, pick realistic equipment, and build a transparent cost roll-up.
-            This is a training sample — not a formal bid.
+            A building-scale adaptation of a utility BESS project: I document assumptions, draw a simplified single-line,
+            select representative equipment, and build a transparent materials + labour estimate. This is a training sample (not a bid).
           </p>
-          <p class="footer-note">
-            Source inspiration: ITI public project summaries & general BESS architecture. All values here are assumptions for learning.
-          </p>
+          <p class="muted">Inspiration: public info on SaskPower’s 20&nbsp;MW BESS and ITI’s project summary (utility-scale). I’m modeling a smaller building application.</p>
         </div>
         <div class="card" style="background:#101010">
           <h3 class="muted">Deliverables</h3>
-          <ul class="inline">
-            <li>Assumption set (load profile, interconnect, duration)</li>
-            <li>Simple single-line diagram (PNG/SVG)</li>
-            <li>Equipment selection with vendor links</li>
-            <li>Excel estimate: materials + labour + adders</li>
+          <ul>
+            <li>Assumptions & scope boundaries</li>
+            <li>Simple SLD (PNG/SVG)</li>
+            <li>Equipment list w/ vendor links & budget prices</li>
+            <li>Excel estimate with contingency/overhead/profit</li>
           </ul>
-          <div style="margin-top:12px;">
-            
-            <a class="btn" href="./SaskPower_BESS_Sample_Estimate.xlsx" download>Download Excel Estimate</a>
-          </div>
+          <a class="btn" href="./SaskPower_BESS_Sample_Estimate.xlsx" download>Download Excel Estimate</a>
         </div>
       </div>
     </section>
 
-  
-    <section id="assumptions">
-      <div class="spaced">
-        <h2>Assumptions</h2>
-        <span class="kbd">Rev: 2025-10-06</span>
-      </div>
+    <!-- 2) WHY THIS IS IMPORTANT -->
+    <section id="why">
       <div class="card">
-        <div class="grid grid-2">
-          <div>
-            <h3>Building Context</h3>
-            <table>
-              <tbody>
-                <tr><th scope="row">Building Type</th><td>Large healthcare / campus-style facility</td></tr>
-                <tr><th scope="row">Interconnect Voltage</th><td>13.8&nbsp;kV utility feed (MV)</td></tr>
-                <tr><th scope="row">Average Demand</th><td>1.6&nbsp;MW (typical daytime)</td></tr>
-                <tr><th scope="row">Peak Demand</th><td>2.5&nbsp;MW between 17:00–20:00</td></tr>
-                <tr><th scope="row">Target Peak Shaving</th><td>≈ 1.0&nbsp;MW for 1 hour (shift peak down)</td></tr>
-                <tr><th scope="row">BESS Size (Nameplate)</th><td>1.2&nbsp;MW / 1.2&nbsp;MWh (20% headroom)</td></tr>
-                <tr><th scope="row">PCS Topology</th><td>Modular PCS E-houses, step-up via transformer</td></tr>
-                <tr><th scope="row">Environment</th><td>Outdoor pads, weather-rated gear</td></tr>
-              </tbody>
-              <tfoot>
-                <tr><td colspan="2">Note: Values are assumed for training; final sizing requires measured load profile & utility studies.</td></tr>
-              </tfoot>
-            </table>
-          </div>
-          <div>
-            <h3>Estimating Notes</h3>
-            <ul class="inline">
-              <li>Unit costs based on public list pricing vibes + experience; vendor quotes will refine.</li>
-              <li>Labour rate and hours are placeholders; site conditions affect them heavily.</li>
-              <li>Includes contingency/overhead/profit adders in Excel summary.</li>
-              <li>Excludes civil, permitting, taxes, utility fees, and owner equipment.</li>
-            </ul>
-          </div>
-        </div>
+        <h2>Why This Is Important</h2>
+        <ul>
+          <li><strong>Peak shaving:</strong> Charge off-peak, discharge during 17:00–20:00 to chop the building’s peak demand.</li>
+          <li><strong>Stability:</strong> Fast charge/discharge dampens voltage/frequency blips and smooths renewables.</li>
+          <li><strong>Capex deferral:</strong> Lower peaks can defer upstream feeder/panel upgrades.</li>
+        </ul>
+        <p class="muted">BESS acts like a grid shock absorber — store when there’s surplus, inject when it’s tight.</p>
       </div>
     </section>
 
-    
-    <section id="diagram">
-      <h2>System Diagram (Simplified SLD)</h2>
+    <!-- 3) SLD -->
+    <section id="sld">
       <div class="card">
+        <h2>Simplified Single-Line Diagram (SLD)</h2>
         <div class="img-wrap">
-         
-          <img src="./img/bess-sld-placeholder.png" alt="Simplified single-line diagram of building-scale BESS integration" />
+          <!-- TODO: replace with your real image path; you prefer github.com raw links -->
+          <!-- e.g. https://github.com/Abhayjeet1357/EET-Portfolio/blob/main/public/img/bess-sld.png?raw=1 -->
+          <img src="./img/bess-sld-placeholder.png" alt="Building-scale BESS SLD" />
         </div>
-        <p class="muted" style="margin-top:10px;">
-          Single-line flow (high level): Utility 13.8&nbsp;kV → MV Switchgear → Step-down/Step-up Transformers →
-          PCS E-Houses (DC↔AC) → Battery Containers (DC) → LV Aux Loads & SCADA/Protection.
+        <p class="muted" style="margin-top:10px">
+          Flow: Utility 13.8&nbsp;kV → MV Switchgear → Step-up/Down Transformers → PCS E-Houses ↔ Battery Containers → SCADA/Protection.
         </p>
       </div>
-
-      <div class="grid grid-3" style="margin-top:18px;">
-        <div class="card">
-          <h3>Interconnect</h3>
-          <p>MV switchgear receives 13.8&nbsp;kV from utility. Includes metering, main breaker, protection relays, and outgoing feeder to BESS block.</p>
-        </div>
-        <div class="card">
-          <h3>Conversion</h3>
-          <p>PCS converts battery DC to AC (discharge) and AC to DC (charge). Each PCS block ties to a transformer to match MV.</p>
-        </div>
-        <div class="card">
-          <h3>Controls</h3>
-          <p>SCADA supervises state of charge, temperature, alarms, and dispatch strategy for peak shaving & grid support.</p>
-        </div>
-      </div>
     </section>
 
-   
-    <section id="operation">
-      <h2>How It Works & Protection</h2>
+    <!-- 4) HOW IT WORKS -->
+    <section id="how">
       <div class="card grid grid-2">
         <div>
-          <h3>Operation</h3>
-          <ul class="inline">
-            <li><strong>Charging (off-peak):</strong> BESS absorbs energy when demand and prices are low to prep for evening peak.</li>
-            <li><strong>Discharging (peak):</strong> During 17:00–20:00, BESS supplies ≈1.0&nbsp;MW, shaving the building peak.</li>
-            <li><strong>Stabilization:</strong> Fast response helps smooth micro-fluctuations, complementing traditional generation.</li>
+          <h2>How It Works</h2>
+          <ul>
+            <li><strong>Charging:</strong> Off-peak; PCS converts AC→DC to store energy in battery racks.</li>
+            <li><strong>Discharging:</strong> Peak hours; PCS converts DC→AC through step-up transformer to MV bus.</li>
+            <li><strong>Dispatch:</strong> SCADA controls setpoints (kW), SOC limits, alarms, and events.</li>
           </ul>
         </div>
         <div>
-          <h3>Protection & Safety</h3>
-          <ul class="inline">
-            <li><strong>MV Protection:</strong> Relay-coordinated overcurrent & ground fault on incoming and feeder breakers.</li>
-            <li><strong>Transformer Protection:</strong> Primary/secondary OCPD, temp sensors, and differential where required.</li>
-            <li><strong>PCS/Battery:</strong> BMS with cell/rack monitoring, DC disconnects, fuses, and isolation detection.</li>
-            <li><strong>Arc Flash & Coordination:</strong> Time-current curves & PPE category established during studies.</li>
-            <li><strong>SCADA Alarms:</strong> Thermal, over/under-voltage, frequency, smoke/fire suppression tie-ins.</li>
+          <h2>Protection (High-Level)</h2>
+          <ul>
+            <li>Relay-coordinated O/C & ground-fault on MV main and feeders.</li>
+            <li>Transformer primary/secondary OCPD, temp monitoring.</li>
+            <li>BMS + DC disconnects/fuses; arc-flash/coordination study for PPE.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    
-    <section id="equipment">
+    <!-- 5) MATERIALS WITH LINKS + BUDGET PRICE -->
+    <section id="materials">
       <div class="spaced">
-        <h2>Equipment & Data Sheets</h2>
-        <span class="kbd">Note: representative selections; final vendor/model TBD by spec & quotes</span>
+        <h2>Materials (Representative) & Budget Links</h2>
+        <span class="kbd">Prices are indicative for training — use vendor quotes for bids.</span>
       </div>
       <div class="card">
         <table>
           <thead>
             <tr>
               <th>Equipment</th>
-              <th>Selection (Example)</th>
-              <th>Notes</th>
+              <th>Spec (Example)</th>
+              <th>Budget Price</th>
               <th>Link</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>MV Switchgear (13.8&nbsp;kV)</td>
-              <td>Metal-clad lineup, ANSI 2B equivalent</td>
-              <td>Main breaker, metering, feeder to BESS transformer</td>
-              <td><a href="#" target="_blank" rel="noopener">Vendor Datasheet</a></td>
+              <td>MV Switchgear (13.8 kV)</td>
+              <td>Metal-clad lineup, indoor, 25–50 kA, 1200 A</td>
+              <td>~US$8k–12k per cell (varies by lineup)</td>
+              <td><a target="_blank" rel="noopener" href="https://hnelectric.en.alibaba.com/productgrouplist-803970406/Switchgear.html">Example vendor catalog</a></td>
             </tr>
             <tr>
-              <td>PCS E-House</td>
-              <td>Modular containerized PCS (≈ 600–1200&nbsp;kW per block)</td>
-              <td>Factory-wired, HVAC, protection & controls inside</td>
-              <td><a href="#" target="_blank" rel="noopener">Vendor Overview</a></td>
+              <td>Pad-mount Transformer</td>
+              <td>≈500 kVA, 13.8 kV → 600 V</td>
+              <td>~US$10k–27k</td>
+              <td><a target="_blank" rel="noopener" href="https://evernewelectrical.en.made-in-china.com/product/FtnRDTbxIokE/China-Canada-USA-Standard-Fr23-Loop-Feed-Three-Phase-13-8kv-Dead-Front-Pedestal-Pmt-Substation-Pad-Mounted-500-kVA-Transformer.html">Example listing</a></td>
             </tr>
             <tr>
-              <td>Step-Up Transformer</td>
-              <td>LV→13.8&nbsp;kV, oil or dry-type (size to PCS)</td>
-              <td>Impedance & taps per utility study</td>
-              <td><a href="#" target="_blank" rel="noopener">Transformer Spec</a></td>
+              <td>PCS E-House / Inverter Block</td>
+              <td>~1 MW PCS in containerized E-House</td>
+              <td>varies — quote required</td>
+              <td><a target="_blank" rel="noopener" href="https://energetechsolar.com/1mwh-energy-storage-banks-in-40ft-containers">1 MWh container price ref</a></td>
             </tr>
             <tr>
-              <td>Station Service Transformer</td>
-              <td>13.8&nbsp;kV→600&nbsp;V, 300–500&nbsp;kVA</td>
-              <td>Aux power for HVAC, lighting, controls</td>
-              <td><a href="#" target="_blank" rel="noopener">Spec Sheet</a></td>
+              <td>Battery Container (≈1 MWh)</td>
+              <td>Li-ion containerized rack with BMS</td>
+              <td>~US$775k per 1 MWh (retail site); other listings vary</td>
+              <td><a target="_blank" rel="noopener" href="https://energetechsolar.com/1mwh-energy-storage-banks-in-40ft-containers">Energetech example</a></td>
             </tr>
             <tr>
-              <td>Battery Containers</td>
-              <td>Li-ion rack containers with BMS</td>
-              <td>Ventilation, fire detection/suppression</td>
-              <td><a href="#" target="_blank" rel="noopener">Product Page</a></td>
+              <td>MV Power Cable</td>
+              <td>15 kV, 3/C 500 MCM (copper) MV-105</td>
+              <td>~US$84.99/ft (retail)</td>
+              <td><a target="_blank" rel="noopener" href="https://nassaunationalcable.com/products/500-mcm-3c-mv105-15kv-epr-pvc-power-cable">Nassau National Cable</a></td>
             </tr>
             <tr>
-              <td>SCADA & Protection</td>
-              <td>Relays, RTU/PLC, comms</td>
-              <td>Remote monitoring, alarms, historian</td>
-              <td><a href="#" target="_blank" rel="noopener">SCADA/Relay</a></td>
+              <td>Alt. MV Cable (aluminum)</td>
+              <td>15 kV, 500 MCM (Al) MV-105</td>
+              <td>~US$13.55/ft (retail)</td>
+              <td><a target="_blank" rel="noopener" href="https://nassaunationalcable.com/products/500-mv">Nassau — aluminum</a></td>
             </tr>
             <tr>
-              <td>Cabling & Terminations</td>
-              <td>MV cable, LV control, fiber</td>
-              <td>Tray/ductbank per site</td>
-              <td><a href="#" target="_blank" rel="noopener">Cable Spec</a></td>
+              <td>SCADA/Protection</td>
+              <td>Relays + RTU/PLC + comms</td>
+              <td>varies — quote required</td>
+              <td><a target="_blank" rel="noopener" href="https://www.larsonelectronics.com/product/312111/metal-enclosed-switchgear-1200-amp-13-8-kv-ac-3-pole-3-wire-2in-2out-floor-mount-bottom-entry-copper-bus-nema-12">Example gear (reference)</a></td>
             </tr>
           </tbody>
         </table>
-        <p class="footer-note" style="margin-top:10px;">
-          Replace the “Vendor” links with your chosen manufacturer datasheets (Schneider / ABB / Eaton / Hitachi / Sungrow / SMA, etc.).
+        <p class="muted" style="margin-top:10px">
+          Notes: Prices are web-retail or catalog ballparks in USD (as of Oct 2025) and swing a lot by spec, vendor, region, and volume.
+          Always request current quotes and align specs with utility studies.
         </p>
       </div>
     </section>
 
-    
+    <!-- 6) COST SNAPSHOT / EXCEL -->
     <section id="costs">
       <div class="spaced">
-        <h2>Cost Snapshot</h2>
-        <div>
-          
-          <a class="btn outline" href="./SaskPower_BESS_Sample_Estimate.xlsx" download>Download .XLSX</a>
-        </div>
+        <h2>Cost Snapshot (Excel)</h2>
+        <a class="btn outline" href="./SaskPower_BESS_Sample_Estimate.xlsx" download>Download .XLSX</a>
       </div>
       <div class="card">
         <div class="img-wrap">
-          
+          <!-- TODO: replace with your Excel screenshot hosted in repo -->
           <img src="./img/bess-estimate-excel-placeholder.png" alt="Excel estimate screenshot (materials, labour, contingency/overhead/profit)" />
         </div>
-        <p class="muted" style="margin-top:10px;">
-          Costs shown here are training placeholders. Final pricing depends on vendor quotations, installation conditions, and utility requirements.
+        <p class="muted" style="margin-top:10px">
+          Training placeholders only. Final pricing depends on vendor quotes, installation conditions, and utility requirements.
         </p>
       </div>
     </section>
 
-    <section>
-      <div class="card">
-        <h3>Notes & Disclaimers</h3>
-        <ul class="inline">
-          <li>This is an educational sample to demonstrate estimating workflow and documentation habits.</li>
-          <li>All figures are assumed. Formal proposals require stamped drawings, vendor quotes, and utility approvals.</li>
-          <li>Protection/coordination, arc-flash, and grounding studies are referenced but not included here.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section style="padding-bottom:48px;">
+    <footer>
       <div class="spaced">
-        <span class="footer-note">© <span id="year"></span> Abhay Sidhu — Electrical Engineering Technology</span>
-        <a href="index.html" class="btn outline">← Back to Portfolio</a>
+        <span class="muted">© <span id="year"></span> Abhay Sidhu — Electrical Engineering Technology</span>
+        <a class="btn outline" href="./index.html">← Back to Portfolio</a>
       </div>
-    </section>
+    </footer>
   </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
